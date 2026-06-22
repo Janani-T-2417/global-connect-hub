@@ -1,26 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, products } from "@/lib/products";
 import { ArrowRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 
-export const Route = createFileRoute("/products/")({
-  head: () => ({
-    meta: [
-      { title: "Products — 100+ Export Products from India | JAKKI EXIM" },
-      {
-        name: "description",
-        content:
-          "Browse 100+ export-ready products across 11 categories — eco tableware, dehydrated powders, oils, millets, honey, agro-commodities and more.",
-      },
-      { property: "og:title", content: "JAKKI EXIM Products" },
-      { property: "og:description", content: "100+ verified Indian export products." },
-    ],
-  }),
-  component: ProductsIndex,
-});
 
-function ProductsIndex() {
+
+export default function ProductsIndex() {
   const [q, setQ] = useState("");
   const filtered = useMemo(() => {
     if (!q.trim()) return products;
@@ -66,8 +52,7 @@ function ProductsIndex() {
             {categories.map((c) => (
               <Link
                 key={c.slug}
-                to="/products/$category"
-                params={{ category: c.slug }}
+                to={`/products/${c.slug}`}
                 className="group relative flex overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="w-1/3 overflow-hidden">
@@ -105,8 +90,7 @@ function ProductsIndex() {
             return (
               <Link
                 key={p.slug}
-                to="/products/$category/$product"
-                params={{ category: p.categorySlug, product: p.slug }}
+                to={`/products/${p.categorySlug}/${p.slug}`}
                 className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               >
                 <div className="aspect-square overflow-hidden bg-secondary">

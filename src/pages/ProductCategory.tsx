@@ -1,46 +1,16 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, getCategory, getProductsByCategory } from "@/lib/products";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
-export const Route = createFileRoute("/products/$category/")({
-  head: ({ params }) => {
-    const c = getCategory(params.category);
-    const title = c ? `${c.shortName} — Export Catalogue | JAKKI EXIM` : "Category | JAKKI EXIM";
-    return {
-      meta: [
-        { title },
-        {
-          name: "description",
-          content: c
-            ? `Export ${c.shortName} from India. ${c.count} verified products with HS codes, certifications and global shipping.`
-            : "Product category",
-        },
-        { property: "og:title", content: title },
-        { property: "og:image", content: c?.image ?? "" },
-      ],
-    };
-  },
-  loader: ({ params }) => {
-    const c = getCategory(params.category);
-    if (!c) throw notFound();
-    return { category: c };
-  },
-  component: CategoryPage,
-  notFoundComponent: () => (
-    <SiteLayout>
-      <div className="mx-auto max-w-3xl px-4 py-32 text-center">
-        <h1 className="text-3xl font-bold">Category not found</h1>
-        <Link to="/products" className="mt-6 inline-flex items-center gap-2 text-primary">
-          Back to products <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </SiteLayout>
-  ),
-});
 
-function CategoryPage() {
-  const { category } = Route.useLoaderData();
+
+export default function CategoryPage() {
+  
+  const { category: catSlug } = useParams();
+  const category = getCategory(catSlug as string);
+  if (!category) return <div className="p-20 text-center">Category not found</div>;
+
   const items = getProductsByCategory(category.slug);
   return (
     <SiteLayout>
@@ -70,8 +40,7 @@ function CategoryPage() {
           {items.map((p) => (
             <Link
               key={p.slug}
-              to="/products/$category/$product"
-              params={{ category: p.categorySlug, product: p.slug }}
+              to={`/products/${p.categorySlug}/${p.slug}`}
               className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="aspect-square overflow-hidden bg-secondary">
@@ -103,8 +72,7 @@ function CategoryPage() {
             {categories.filter((c) => c.slug !== category.slug).map((c) => (
               <Link
                 key={c.slug}
-                to="/products/$category"
-                params={{ category: c.slug }}
+                to={`/products/${c.slug}`}
                 className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-foreground transition hover:border-primary hover:text-primary"
               >
                 {c.shortName}

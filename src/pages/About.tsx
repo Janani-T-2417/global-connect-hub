@@ -1,26 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { Target, Eye, Heart, ArrowRight } from "lucide-react";
 import heroPort from "@/assets/hero-port.jpg";
 
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About JAKKI EXIM — Indian Export Company Built on Trust" },
-      {
-        name: "description",
-        content:
-          "Learn about JAKKI EXIM — our mission, vision and commitment to connecting Indian producers to global buyers with quality, compliance and care.",
-      },
-      { property: "og:title", content: "About JAKKI EXIM" },
-      { property: "og:description", content: "A Local to Global Company. Trusted Indian export partner." },
-      { property: "og:image", content: heroPort },
-    ],
-  }),
-  component: About,
-});
 
-function About() {
+
+export default function About() {
   return (
     <SiteLayout>
       <section className="relative isolate overflow-hidden bg-primary">

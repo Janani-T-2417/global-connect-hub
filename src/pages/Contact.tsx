@@ -1,25 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { Mail, Phone, MapPin, Globe, Send } from "lucide-react";
 import { useState, type FormEvent } from "react";
 
-export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact JAKKI EXIM — Request Export Quote & Samples" },
-      {
-        name: "description",
-        content:
-          "Get in touch with JAKKI EXIM for export quotations, product samples and partnership opportunities. We respond within 24 hours.",
-      },
-      { property: "og:title", content: "Contact JAKKI EXIM" },
-      { property: "og:description", content: "Request a quote — response within 24 hours." },
-    ],
-  }),
-  component: Contact,
-});
 
-function Contact() {
+
+export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();

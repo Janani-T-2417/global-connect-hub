@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import {
   categories,
@@ -8,43 +8,15 @@ import {
 } from "@/lib/products";
 import { ArrowRight, ChevronRight, Mail, Package2 } from "lucide-react";
 
-export const Route = createFileRoute("/products/$category/$product")({
-  head: ({ params }) => {
-    const p = getProduct(params.product);
-    const c = getCategory(params.category);
-    if (!p || !c) return { meta: [{ title: "Product | JAKKI EXIM" }] };
-    return {
-      meta: [
-        { title: `${p.name} — Export from India | JAKKI EXIM` },
-        { name: "description", content: p.description.slice(0, 155) },
-        { name: "keywords", content: p.seo },
-        { property: "og:title", content: p.name },
-        { property: "og:description", content: p.tagline },
-        { property: "og:image", content: c.image },
-      ],
-    };
-  },
-  loader: ({ params }) => {
-    const p = getProduct(params.product);
-    const c = getCategory(params.category);
-    if (!p || !c) throw notFound();
-    return { product: p, category: c };
-  },
-  component: ProductPage,
-  notFoundComponent: () => (
-    <SiteLayout>
-      <div className="mx-auto max-w-3xl px-4 py-32 text-center">
-        <h1 className="text-3xl font-bold">Product not found</h1>
-        <Link to="/products" className="mt-6 inline-flex items-center gap-2 text-primary">
-          Back to products <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
-    </SiteLayout>
-  ),
-});
 
-function ProductPage() {
-  const { product, category } = Route.useLoaderData();
+
+export default function ProductPage() {
+  
+  const { category: catSlug, product: prodSlug } = useParams();
+  const category = getCategory(catSlug as string);
+  const product = getProduct(prodSlug as string);
+  if (!category || !product) return <div className="p-20 text-center">Not found</div>;
+
   const related = getProductsByCategory(category.slug).filter((p) => p.slug !== product.slug).slice(0, 4);
   return (
     <SiteLayout>
@@ -55,7 +27,7 @@ function ProductPage() {
             <ChevronRight className="h-3 w-3" />
             <Link to="/products" className="hover:text-primary">Products</Link>
             <ChevronRight className="h-3 w-3" />
-            <Link to="/products/$category" params={{ category: category.slug }} className="hover:text-primary">
+            <Link to={`/products/${category.slug}`} className="hover:text-primary">
               {category.shortName}
             </Link>
             <ChevronRight className="h-3 w-3" />
@@ -77,8 +49,7 @@ function ProductPage() {
           </div>
           <div>
             <Link
-              to="/products/$category"
-              params={{ category: category.slug }}
+              to={`/products/${category.slug}`}
               className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.2em] text-accent hover:underline"
             >
               {category.shortName}
@@ -104,8 +75,7 @@ function ProductPage() {
                 <Mail className="h-4 w-4" /> Request Quote
               </Link>
               <Link
-                to="/products/$category"
-                params={{ category: category.slug }}
+                to={`/products/${category.slug}`}
                 className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary"
               >
                 <Package2 className="h-4 w-4" /> View Category
@@ -146,8 +116,7 @@ function ProductPage() {
               return (
                 <Link
                   key={p.slug}
-                  to="/products/$category/$product"
-                  params={{ category: p.categorySlug, product: p.slug }}
+                  to={`/products/${p.categorySlug}/${p.slug}`}
                   className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
                   <div className="aspect-square overflow-hidden bg-secondary">

@@ -1,22 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { Ship, FileCheck2, Package, Search, Handshake, Boxes } from "lucide-react";
 
-export const Route = createFileRoute("/services")({
-  head: () => ({
-    meta: [
-      { title: "Services — Export Sourcing, Logistics & Compliance | JAKKI EXIM" },
-      {
-        name: "description",
-        content:
-          "End-to-end export services from JAKKI EXIM: sourcing, quality control, private labelling, documentation, custom clearance and global logistics.",
-      },
-      { property: "og:title", content: "JAKKI EXIM Services" },
-      { property: "og:description", content: "Sourcing, QC, compliance, logistics — done right." },
-    ],
-  }),
-  component: Services,
-});
+
 
 const services = [
   { icon: Search, title: "Product Sourcing", desc: "Direct procurement from FPOs, MSMEs and artisan clusters across India with traceable supply chains." },
@@ -27,7 +13,7 @@ const services = [
   { icon: Handshake, title: "Long-Term Partnerships", desc: "Dedicated account manager, forecast-based planning and consistent quality across repeat orders." },
 ];
 
-function Services() {
+export default function Services() {
   return (
     <SiteLayout>
       <section className="bg-primary py-20 text-primary-foreground">

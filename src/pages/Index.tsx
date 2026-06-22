@@ -1,30 +1,12 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { ArrowRight, Globe2, ShieldCheck, Ship, Leaf, Award, Factory } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, products } from "@/lib/products";
 import heroPort from "@/assets/hero-port.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "JAKKI EXIM — A Local to Global Company | Premium Indian Exports" },
-      {
-        name: "description",
-        content:
-          "JAKKI EXIM is a trusted Indian export–import company supplying eco-friendly tableware, agro-commodities, dehydrated powders, oils, millets, honey and fashion accessories worldwide.",
-      },
-      { property: "og:title", content: "JAKKI EXIM — A Local to Global Company" },
-      {
-        property: "og:description",
-        content: "Premium Indian exports to global markets — sustainable, compliant, on-time.",
-      },
-      { property: "og:image", content: heroPort },
-    ],
-  }),
-  component: Home,
-});
 
-function Home() {
+
+export default function Home() {
   return (
     <SiteLayout>
       <Hero />
@@ -134,8 +116,7 @@ function CategoriesSection() {
         {categories.map((c) => (
           <Link
             key={c.slug}
-            to="/products/$category"
-            params={{ category: c.slug }}
+            to={`/products/${c.slug}`}
             className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
           >
             <div className="aspect-[4/3] overflow-hidden">
@@ -218,8 +199,7 @@ function FeaturedProducts() {
           return (
             <Link
               key={p.slug}
-              to="/products/$category/$product"
-              params={{ category: p.categorySlug, product: p.slug }}
+              to={`/products/${p.categorySlug}/${p.slug}`}
               className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="aspect-square overflow-hidden bg-secondary">

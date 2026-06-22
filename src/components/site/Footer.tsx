@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Globe } from "lucide-react";
-import logo from "@/assets/logo.jpg.asset.json";
+import logo from "@/assets/jakki-exim-logo.jpg";
 import { categories } from "@/lib/products";
 
 export function Footer() {
@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="JAKKI EXIM" width={48} height={48} className="h-12 w-12 object-contain" />
+            <img src={logo} alt="JAKKI EXIM" width={48} height={48} className="h-12 w-12 object-contain" />
             <div className="leading-tight">
               <div className="text-base font-bold text-primary">JAKKI EXIM</div>
               <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
@@ -49,8 +49,7 @@ export function Footer() {
             {categories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link
-                  to="/products/$category"
-                  params={{ category: c.slug }}
+                  to={`/products/${c.slug}`}
                   className="text-muted-foreground transition hover:text-primary"
                 >
                   {c.shortName}
