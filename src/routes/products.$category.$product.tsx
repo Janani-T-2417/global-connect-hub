@@ -125,7 +125,7 @@ function ProductPage() {
 
         {product.seo && (
           <div className="mt-6 flex flex-wrap gap-2">
-            {product.seo.split(",").map((k, i) => (
+            {product.seo.split(",").map((k: string, i: number) => (
               <span
                 key={i}
                 className="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-muted-foreground"
