@@ -1,68 +1,36 @@
-import { Link, useParams } from "react-router-dom";
-import { ArrowRight, Globe2, ShieldCheck, Ship, Leaf, Award, Factory } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight, ShieldCheck, Ship, Leaf, Award, Factory, Globe2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, products } from "@/lib/products";
-import heroPort from "@/assets/hero-port.jpg";
-
-
+import { HeroSlider } from "@/components/site/HeroSlider";
+import { ImageMarquee } from "@/components/site/ImageMarquee";
+import { ProductCard } from "@/components/site/ProductCard";
 
 export default function Home() {
   return (
     <SiteLayout>
-      <Hero />
+      <HeroSlider />
       <TrustBar />
+      <div className="py-14">
+        <ImageMarquee theme="eco,bagasse,bamboo,sustainable,tableware" title="Eco-Friendly Products" />
+      </div>
       <CategoriesSection />
+      <div className="bg-brand-sky/60 py-16">
+        <ImageMarquee theme="agriculture,farm,india,harvest,grain" title="Agro & Farm Excellence" reverse />
+      </div>
       <WhyUs />
+      <div className="py-14">
+        <ImageMarquee theme="spice,turmeric,powder,indian,color" title="Powders & Spices" />
+      </div>
       <FeaturedProducts />
+      <div className="bg-brand-sky/60 py-16">
+        <ImageMarquee theme="honey,jar,bee,gold,honeycomb" title="Honey & Superfoods" reverse />
+      </div>
+      <div className="py-14">
+        <ImageMarquee theme="cargo,container,port,shipping,logistics" title="Export & Logistics" />
+      </div>
       <CTA />
     </SiteLayout>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="relative isolate overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <img
-          src={heroPort}
-          alt="Global shipping port at sunrise"
-          width={1920}
-          height={1080}
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
-      </div>
-      <div className="mx-auto max-w-7xl px-4 py-28 sm:px-6 sm:py-36 lg:px-8 lg:py-44">
-        <div className="max-w-3xl text-primary-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider backdrop-blur">
-            <Globe2 className="h-3.5 w-3.5" /> Exporting from India to the World
-          </span>
-          <h1 className="mt-6 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            A Local Promise. <span className="text-accent">A Global Standard.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
-            JAKKI EXIM connects India's finest farms, factories and artisans to international
-            buyers — delivering eco-friendly packaging, agro commodities, powders, oils and
-            handcrafted goods with uncompromising quality and on-time logistics.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              to="/products"
-              className="group inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground shadow-lg transition hover:bg-accent/90"
-            >
-              Explore Products
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
-            >
-              Request a Quote
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -74,12 +42,17 @@ function TrustBar() {
     { value: "100%", label: "Compliance Focused" },
   ];
   return (
-    <section className="border-b border-border bg-secondary/40">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 py-10 sm:px-6 md:grid-cols-4 lg:px-8">
-        {stats.map((s) => (
-          <div key={s.label} className="text-center">
-            <div className="text-3xl font-bold text-primary">{s.value}</div>
-            <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+    <section className="relative z-10 -mt-16 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-4 rounded-3xl p-8 md:grid-cols-4 glass">
+        {stats.map((s, i) => (
+          <div key={s.label} className="text-center animate-fade-up" style={{ animationDelay: `${i * 0.08}s` }}>
+            <div
+              className="bg-clip-text text-4xl font-extrabold text-transparent"
+              style={{ backgroundImage: "var(--gradient-brand)" }}
+            >
+              {s.value}
+            </div>
+            <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
               {s.label}
             </div>
           </div>
@@ -97,7 +70,7 @@ function CategoriesSection() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             What We Export
           </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             11 Curated Categories. {products.length}+ Verified Products.
           </h2>
           <p className="mt-4 text-muted-foreground">
@@ -107,7 +80,7 @@ function CategoriesSection() {
         </div>
         <Link
           to="/products"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:gap-3 transition-all"
         >
           View all products <ArrowRight className="h-4 w-4" />
         </Link>
@@ -117,7 +90,7 @@ function CategoriesSection() {
           <Link
             key={c.slug}
             to={`/products/${c.slug}`}
-            className="group relative overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-sm transition-all duration-500 hover:-translate-y-1.5 hover:shadow-elegant"
           >
             <div className="aspect-[4/3] overflow-hidden">
               <img
@@ -127,11 +100,11 @@ function CategoriesSection() {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 pt-16 text-white">
-              <div className="text-[10px] font-medium uppercase tracking-wider text-accent">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-6 pt-20 text-white">
+              <div className="inline-flex items-center rounded-full bg-white/20 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur">
                 {c.count} Products
               </div>
-              <h3 className="mt-1 text-lg font-semibold leading-tight">{c.shortName}</h3>
+              <h3 className="mt-2 text-xl font-semibold leading-tight">{c.shortName}</h3>
             </div>
           </Link>
         ))}
@@ -150,24 +123,30 @@ function WhyUs() {
     { icon: Globe2, title: "Local to Global", desc: "We carry India's craft, farm and innovation to the world's shelves." },
   ];
   return (
-    <section className="bg-secondary/40 py-20">
+    <section className="relative overflow-hidden bg-brand-sky/40 py-24">
+      <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-primary/10 blur-3xl animate-float" />
+      <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-brand-blue/10 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Why JAKKI EXIM
           </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             Built for international buyers who demand reliability.
           </h2>
         </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((it) => (
+          {items.map((it, i) => (
             <div
               key={it.title}
-              className="rounded-xl border border-border bg-card p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+              className="glass rounded-3xl p-8 transition duration-500 hover:-translate-y-1.5 hover:shadow-elegant animate-fade-up"
+              style={{ animationDelay: `${i * 0.08}s` }}
             >
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <it.icon className="h-6 w-6" />
+              <div
+                className="inline-flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-elegant"
+                style={{ backgroundImage: "var(--gradient-brand)" }}
+              >
+                <it.icon className="h-7 w-7" />
               </div>
               <h3 className="mt-5 text-lg font-semibold text-foreground">{it.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
@@ -188,40 +167,15 @@ function FeaturedProducts() {
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">
             Featured Products
           </span>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-5xl">
             Best-sellers from our export catalogue
           </h2>
         </div>
       </div>
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {featured.map((p) => {
-          const img = categories.find((c) => c.slug === p.categorySlug)?.image;
-          return (
-            <Link
-              key={p.slug}
-              to={`/products/${p.categorySlug}/${p.slug}`}
-              className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <div className="aspect-square overflow-hidden bg-secondary">
-                <img
-                  src={img}
-                  alt={p.name}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-accent">
-                  HS {p.hs6}
-                </div>
-                <h3 className="mt-2 line-clamp-2 text-sm font-semibold leading-snug text-foreground group-hover:text-primary">
-                  {p.name}
-                </h3>
-                <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
-              </div>
-            </Link>
-          );
-        })}
+        {featured.map((p) => (
+          <ProductCard key={p.slug} p={p} />
+        ))}
       </div>
     </section>
   );
@@ -230,11 +184,15 @@ function FeaturedProducts() {
 function CTA() {
   return (
     <section className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-      <div className="relative overflow-hidden rounded-2xl bg-primary px-8 py-14 text-primary-foreground sm:px-14">
-        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/30 blur-3xl" />
+      <div
+        className="relative overflow-hidden rounded-3xl px-8 py-16 text-primary-foreground sm:px-14"
+        style={{ backgroundImage: "var(--gradient-brand)" }}
+      >
+        <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/40 blur-3xl animate-float" />
+        <div className="absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-white/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
         <div className="relative grid items-center gap-8 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">
               Ready to source from India?
             </h2>
             <p className="mt-4 max-w-xl text-white/85">
@@ -245,13 +203,13 @@ function CTA() {
           <div className="flex flex-wrap gap-4 md:justify-end">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-md bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground shadow-lg transition hover:bg-accent/90"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-brand-blue shadow-elegant transition hover:-translate-y-0.5"
             >
               Start an Enquiry <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/20"
             >
               Browse Catalogue
             </Link>
