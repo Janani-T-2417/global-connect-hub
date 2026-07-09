@@ -5,9 +5,7 @@ import {
   getCategory,
   getProduct,
   getProductsByCategory,
-  getProductImage,
 } from "@/lib/products";
-import { ProductCard } from "@/components/site/ProductCard";
 import { ArrowRight, ChevronRight, Mail, Package2 } from "lucide-react";
 
 
@@ -42,7 +40,7 @@ export default function ProductPage() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
             <img
-              src={getProductImage(product.slug, 1000, 1000)}
+              src={category.image}
               alt={product.name}
               width={1280}
               height={896}
