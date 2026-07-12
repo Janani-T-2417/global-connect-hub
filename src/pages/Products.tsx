@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, products } from "@/lib/products";
+import { getProductImage } from "@/lib/productImages";
 import { ArrowRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 
@@ -86,7 +87,8 @@ export default function ProductsIndex() {
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => {
-            const img = categories.find((c) => c.slug === p.categorySlug)?.image;
+            const catImg = categories.find((c) => c.slug === p.categorySlug)?.image;
+            const img = getProductImage(p.slug) ?? catImg;
             return (
               <Link
                 key={p.slug}
