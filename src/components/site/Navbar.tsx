@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
 
 const nav = [
@@ -14,32 +14,65 @@ const nav = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="JAKKI EXIM" width={56} height={56} className="h-12 w-12 object-contain" />
-          <div className="hidden flex-col leading-tight sm:flex">
-            <span className="text-base font-bold tracking-tight text-primary">JAKKI EXIM</span>
-            <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+    <header className="sticky top-0 z-50 w-full">
+      {/* Top utility bar */}
+      <div className="hidden bg-primary text-primary-foreground md:block">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs sm:px-6 lg:px-8">
+          <div className="flex items-center gap-5">
+            <a href="mailto:info@jakkiexim.com" className="inline-flex items-center gap-1.5 opacity-90 hover:opacity-100">
+              <Mail className="h-3.5 w-3.5" /> info@jakkiexim.com
+            </a>
+            <a href="tel:+910000000000" className="inline-flex items-center gap-1.5 opacity-90 hover:opacity-100">
+              <Phone className="h-3.5 w-3.5" /> +91 00000 00000
+            </a>
+            <span className="hidden lg:inline opacity-75">Exporting to 30+ countries · Quotes within 24 hours</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100"><Instagram className="h-3.5 w-3.5" /></a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="opacity-80 hover:opacity-100"><Facebook className="h-3.5 w-3.5" /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100"><Linkedin className="h-3.5 w-3.5" /></a>
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" className="opacity-80 hover:opacity-100"><Youtube className="h-3.5 w-3.5" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
+      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="group flex items-center gap-4">
+          <div className="relative">
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-vibrant opacity-0 blur-md transition-opacity group-hover:opacity-40" />
+            <img
+              src={logo}
+              alt="JAKKI EXIM"
+              width={72}
+              height={72}
+              className="relative h-16 w-16 rounded-xl object-contain ring-1 ring-border sm:h-[68px] sm:w-[68px]"
+            />
+          </div>
+          <div className="flex flex-col leading-tight">
+            <span className="text-xl font-extrabold tracking-tight text-primary sm:text-2xl">
+              JAKKI <span className="text-accent">EXIM</span>
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-[11px]">
               A Local to Global Company
             </span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-7 lg:flex">
           {nav.map((n) => (
             <NavLink
               key={n.to}
               to={n.to}
               end={n.to === "/"}
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary [&.active]:text-primary"
+              className="relative text-sm font-semibold text-foreground/80 transition-colors hover:text-primary [&.active]:text-primary [&.active]:after:absolute [&.active]:after:-bottom-2 [&.active]:after:left-0 [&.active]:after:h-0.5 [&.active]:after:w-full [&.active]:after:rounded-full [&.active]:after:bg-gradient-vibrant"
             >
               {n.label}
             </NavLink>
           ))}
           <Link
             to="/contact"
-            className="inline-flex items-center rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
+            className="inline-flex items-center rounded-full bg-gradient-vibrant px-6 py-2.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
           >
             Request Quote
           </Link>
@@ -70,13 +103,20 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+              className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-vibrant px-4 py-3 text-sm font-semibold text-white"
             >
               Request Quote
             </Link>
+            <div className="mt-3 flex items-center justify-center gap-4 border-t border-border pt-3">
+              <a href="https://instagram.com" aria-label="Instagram" className="text-muted-foreground hover:text-primary"><Instagram className="h-5 w-5" /></a>
+              <a href="https://facebook.com" aria-label="Facebook" className="text-muted-foreground hover:text-primary"><Facebook className="h-5 w-5" /></a>
+              <a href="https://linkedin.com" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary"><Linkedin className="h-5 w-5" /></a>
+              <a href="https://youtube.com" aria-label="YouTube" className="text-muted-foreground hover:text-primary"><Youtube className="h-5 w-5" /></a>
+            </div>
           </div>
         </div>
       )}
+      </div>
     </header>
   );
 }
