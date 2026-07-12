@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, getCategory, getProductsByCategory } from "@/lib/products";
+import { getProductImage } from "@/lib/productImages";
 import { ArrowLeft, ChevronRight, Mail, MessageCircle } from "lucide-react";
 
 
@@ -49,7 +50,7 @@ export default function CategoryPage() {
             <div key={p.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-elegant">
               <Link to={`/products/${p.categorySlug}/${p.slug}`} className="relative aspect-square overflow-hidden bg-secondary">
                 <img
-                  src={category.image}
+                  src={getProductImage(p.slug) ?? category.image}
                   alt={p.name}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-125"

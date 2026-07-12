@@ -6,6 +6,7 @@ import {
   getProduct,
   getProductsByCategory,
 } from "@/lib/products";
+import { getProductImage } from "@/lib/productImages";
 import { ArrowRight, ChevronRight, Mail, Package2 } from "lucide-react";
 
 
@@ -40,7 +41,7 @@ export default function ProductPage() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
             <img
-              src={category.image}
+              src={getProductImage(product.slug) ?? category.image}
               alt={product.name}
               width={1280}
               height={896}
@@ -112,7 +113,8 @@ export default function ProductPage() {
           <h2 className="text-2xl font-bold tracking-tight text-foreground">Related Products</h2>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((p) => {
-              const img = categories.find((c) => c.slug === p.categorySlug)?.image;
+              const catImg = categories.find((c) => c.slug === p.categorySlug)?.image;
+              const img = getProductImage(p.slug) ?? catImg;
               return (
                 <Link
                   key={p.slug}
