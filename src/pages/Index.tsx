@@ -58,16 +58,17 @@ function Hero() {
           />
         ))}
         <div className="absolute inset-0 bg-gradient-hero" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.16_0.05_260/0.78)_0%,oklch(0.16_0.05_260/0.55)_60%,oklch(0.16_0.05_260/0.35)_100%)]" />
       </div>
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <div key={i} className="max-w-3xl animate-slide-fade text-white">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
             <Globe2 className="h-3.5 w-3.5" /> {s.eyebrow}
           </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-            {s.title} <span className="bg-gradient-to-r from-brand-gold via-white to-brand-teal bg-clip-text text-transparent">{s.accent}</span>
+          <h1 className="hero-heading mt-6 text-[2.5rem] font-black leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[80px]">
+            {s.title} <span className="text-brand-gold">{s.accent}</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">
+          <p className="mt-6 max-w-[700px] text-lg font-medium leading-[1.8] text-white/95 sm:text-xl">
             {s.desc}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
