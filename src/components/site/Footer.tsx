@@ -5,9 +5,9 @@ import { categories } from "@/lib/products";
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden bg-primary text-primary-foreground">
-      <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
-      <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-brand-teal/25 blur-3xl" />
+    <footer className="relative mt-24 overflow-hidden bg-[oklch(0.32_0.11_148)] text-white">
+      <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-brand-gold/20 blur-3xl" />
+      <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
           <div className="flex items-center gap-3">
