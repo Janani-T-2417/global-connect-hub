@@ -31,7 +31,7 @@ export function Footer() {
               { Icon: Youtube, href: "https://youtube.com", label: "YouTube" },
             ].map(({ Icon, href, label }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
-                 className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-accent hover:text-accent-foreground">
+                 className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-accent hover:text-brand-gold-foreground">
                 <Icon className="h-4 w-4" />
               </a>
             ))}
@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Company</h4>
+          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Company</h4>
           <ul className="mt-5 space-y-3 text-sm">
             {[
               { to: "/about", label: "About Us" },
@@ -57,7 +57,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent">
+          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">
             Top Categories
           </h4>
           <ul className="mt-5 space-y-3 text-sm">
@@ -75,12 +75,12 @@ export function Footer() {
         </div>
 
         <div>
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Get In Touch</h4>
+          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Get In Touch</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-accent" /> India · Exporting Worldwide</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-accent" /> info@jakkiexim.com</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-accent" /> +91 00000 00000</li>
-            <li className="flex items-center gap-2"><Globe className="h-4 w-4 text-accent" /> www.jakkiexim.com</li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-gold" /> India · Exporting Worldwide</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand-gold" /> info@jakkiexim.com</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-gold" /> +91 00000 00000</li>
+            <li className="flex items-center gap-2"><Globe className="h-4 w-4 text-brand-gold" /> www.jakkiexim.com</li>
           </ul>
           <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-vibrant px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
             <Send className="h-3.5 w-3.5" /> Request a Quote
