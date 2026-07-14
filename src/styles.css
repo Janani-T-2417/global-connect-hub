@@ -96,8 +96,8 @@
   --brand-blue: oklch(0.22 0.06 260);
   --brand-green: oklch(0.52 0.15 148);
   --brand-teal: oklch(0.60 0.11 175);
-  /* Premium Gold #D4AF37 */
-  --brand-gold: oklch(0.76 0.13 90);
+  /* Emerald Green (replaces legacy gold token) #15803D */
+  --brand-gold: oklch(0.52 0.15 148);
   --brand-sky: oklch(0.96 0.008 240);
   --brand-light: oklch(0.985 0.002 90);
   --color-brand-blue: var(--brand-blue);
@@ -108,11 +108,11 @@
   --color-brand-light: var(--brand-light);
 
   --gradient-brand: linear-gradient(135deg, oklch(0.22 0.06 260) 0%, oklch(0.52 0.15 148) 100%);
-  --gradient-vibrant: linear-gradient(135deg, oklch(0.22 0.06 260) 0%, oklch(0.30 0.09 260) 55%, oklch(0.76 0.13 90) 100%);
+  --gradient-vibrant: linear-gradient(135deg, oklch(0.22 0.06 260) 0%, oklch(0.52 0.15 148) 100%);
   --gradient-sky: linear-gradient(180deg, oklch(0.985 0.002 90) 0%, oklch(0.955 0.006 90) 100%);
   --gradient-hero: linear-gradient(115deg, oklch(0.16 0.05 260 / 0.92) 0%, oklch(0.22 0.06 260 / 0.75) 55%, oklch(0.22 0.06 260 / 0.45) 100%);
   --shadow-elegant: 0 24px 60px -24px oklch(0.22 0.06 260 / 0.40);
-  --shadow-glow: 0 20px 50px -18px oklch(0.76 0.13 90 / 0.35);
+  --shadow-glow: 0 20px 50px -18px oklch(0.52 0.15 148 / 0.35);
   --shadow-soft: 0 8px 24px -8px oklch(0.20 0.02 260 / 0.08);
   --shadow-card: 0 10px 30px -12px oklch(0.20 0.02 260 / 0.12);
   --chart-1: oklch(0.646 0.222 41.116);
