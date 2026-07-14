@@ -65,7 +65,7 @@ export function Navbar() {
               key={n.to}
               to={n.to}
               end={n.to === "/"}
-              className="relative text-sm font-semibold text-foreground/80 transition-colors hover:text-primary [&.active]:text-primary [&.active]:after:absolute [&.active]:after:-bottom-2 [&.active]:after:left-0 [&.active]:after:h-0.5 [&.active]:after:w-full [&.active]:after:rounded-full [&.active]:after:bg-gradient-vibrant"
+              className="relative font-heading text-[15px] font-medium tracking-[0.01em] text-foreground/80 transition-colors duration-200 hover:text-primary [&.active]:text-primary [&.active]:after:absolute [&.active]:after:-bottom-2 [&.active]:after:left-0 [&.active]:after:h-0.5 [&.active]:after:w-full [&.active]:after:rounded-full [&.active]:after:bg-gradient-vibrant"
             >
               {n.label}
             </NavLink>
