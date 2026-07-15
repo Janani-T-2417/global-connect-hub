@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Globe, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
 import { categories } from "@/lib/products";
@@ -20,7 +20,7 @@ export function Footer() {
             </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
-            A trusted Indian export–import partner connecting farm, factory, and craft to global
+            A trusted Indian exportΓÇôimport partner connecting farm, factory, and craft to global
             markets with quality, compliance, and care.
           </p>
           <div className="mt-5 flex items-center gap-2">
@@ -77,7 +77,7 @@ export function Footer() {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Get In Touch</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-gold" /> India · Exporting Worldwide</li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-gold" /> India ┬╖ Exporting Worldwide</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand-gold" /> info@jakkiexim.com</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-gold" /> +91 00000 00000</li>
             <li className="flex items-center gap-2"><Globe className="h-4 w-4 text-brand-gold" /> www.jakkiexim.com</li>
@@ -89,8 +89,8 @@ export function Footer() {
       </div>
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-8">
-          <span>© {new Date().getFullYear()} JAKKI EXIM. All rights reserved.</span>
-          <span>Designed for international trade · Made in India</span>
+          <span>┬⌐ {new Date().getFullYear()} JAKKI EXIM. All rights reserved.</span>
+          <span>Designed for international trade ┬╖ Made in India</span>
         </div>
       </div>
     </footer>

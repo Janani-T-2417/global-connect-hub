@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
@@ -25,7 +25,7 @@ export function Navbar() {
             <a href="tel:+910000000000" className="inline-flex items-center gap-1.5 opacity-90 hover:opacity-100">
               <Phone className="h-3.5 w-3.5" /> +91 00000 00000
             </a>
-            <span className="hidden lg:inline opacity-75">Exporting to 30+ countries · Quotes within 24 hours</span>
+            <span className="hidden lg:inline opacity-75">Exporting to 30+ countries ┬╖ Quotes within 24 hours</span>
           </div>
           <div className="flex items-center gap-3">
             <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100"><Instagram className="h-3.5 w-3.5" /></a>
