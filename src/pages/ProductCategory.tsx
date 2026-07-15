@@ -6,6 +6,70 @@ import { ArrowLeft, ChevronRight, Mail, MessageCircle } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight as ChevronRightIcon } from "lucide-react";
 
+const categoryBadges: Record<string, { icon: string; label: string }[]> = {
+  "biodegradable-and-eco-friendly-products-sustainable-tableware-eco-packaging": [
+    { icon: "♻️", label: "Compostable" },
+    { icon: "🌱", label: "Sustainable" },
+    { icon: "🌍", label: "Export Ready" },
+  ],
+  "fashion-accessories-imitation-jewellery": [
+    { icon: "💎", label: "Premium Finish" },
+    { icon: "✨", label: "Handcrafted" },
+    { icon: "🌍", label: "Export Quality" },
+  ],
+  "agricultural-dehydrated-powders": [
+    { icon: "🌿", label: "100% Natural" },
+    { icon: "🏭", label: "Hygienically Processed" },
+    { icon: "🌍", label: "Export Ready" },
+  ],
+  "wooden-pressed-virgin-oils": [
+    { icon: "🫒", label: "Cold Pressed" },
+    { icon: "🌾", label: "Chemical Free" },
+    { icon: "🚢", label: "Global Shipping" },
+  ],
+  "millets-powders": [
+    { icon: "🌾", label: "Farm Fresh" },
+    { icon: "⭐", label: "Premium Grade" },
+    { icon: "🌍", label: "Exported Worldwide" },
+  ],
+  "food-industrial-powders": [
+    { icon: "🏭", label: "Industrial Grade" },
+    { icon: "✅", label: "Quality Certified" },
+    { icon: "🌍", label: "Export Ready" },
+  ],
+  "agro-commodities-fresh-dried": [
+    { icon: "🌱", label: "Farm Sourced" },
+    { icon: "⭐", label: "Premium Quality" },
+    { icon: "🚢", label: "Global Shipping" },
+  ],
+  "agricultural-starches-flours-milling-products": [
+    { icon: "🌾", label: "Freshly Milled" },
+    { icon: "✅", label: "Purity Assured" },
+    { icon: "🌍", label: "Export Ready" },
+  ],
+  "animal-feed-oil-cakes": [
+    { icon: "🐄", label: "Nutrient Rich" },
+    { icon: "🌿", label: "100% Natural" },
+    { icon: "🚢", label: "Bulk Export" },
+  ],
+  "premium-superfood-botanical-powders": [
+    { icon: "🌿", label: "Botanical Pure" },
+    { icon: "⭐", label: "Superfood Grade" },
+    { icon: "🌍", label: "Exported Worldwide" },
+  ],
+  "natural-honey": [
+    { icon: "🍯", label: "100% Pure" },
+    { icon: "🐝", label: "Raw & Natural" },
+    { icon: "🌍", label: "Export Quality" },
+  ],
+};
+
+const defaultBadges = [
+  { icon: "🌍", label: "Exported Worldwide" },
+  { icon: "⭐", label: "Premium Quality" },
+  { icon: "🚢", label: "Ready for Global Shipping" },
+];
+
 export default function CategoryPage() {
   
   const { category: catSlug } = useParams();
@@ -13,6 +77,7 @@ export default function CategoryPage() {
   if (!category) return <div className="p-20 text-center">Category not found</div>;
 
   const items = getProductsByCategory(category.slug);
+  const badges = categoryBadges[category.slug] ?? defaultBadges;
 
   // Build a unique slideshow per category from that category's own product images.
   const slides = useMemo(() => {
@@ -38,7 +103,7 @@ export default function CategoryPage() {
 
   return (
     <SiteLayout>
-      <section className="relative isolate overflow-hidden h-[350px] sm:h-[500px] lg:h-[580px]">
+      <section className="relative isolate overflow-hidden h-[320px] sm:h-[400px] lg:h-[480px]">
         {/* Slideshow */}
         <div className="absolute inset-0 -z-20">
           {slides.map((src, i) => (
@@ -46,18 +111,18 @@ export default function CategoryPage() {
               key={src + i}
               src={src}
               alt=""
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-in-out ${
+              className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1400ms] ease-in-out ${
                 i === active ? "opacity-100 animate-ken" : "opacity-0"
               }`}
             />
           ))}
         </div>
-        {/* Navy overlay for readability */}
+        {/* Subtle navy overlay — keep images vibrant */}
         <div
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "linear-gradient(115deg, oklch(0.16 0.05 260 / 0.72) 0%, oklch(0.22 0.06 260 / 0.55) 55%, oklch(0.22 0.06 260 / 0.45) 100%)",
+              "linear-gradient(115deg, oklch(0.16 0.05 260 / 0.55) 0%, oklch(0.22 0.06 260 / 0.35) 55%, oklch(0.22 0.06 260 / 0.25) 100%)",
           }}
         />
         {/* Subtle floating particles */}
@@ -87,14 +152,30 @@ export default function CategoryPage() {
             </Link>
           </div>
 
-          <div className="mb-2 max-w-3xl">
-            <div className="rounded-2xl border border-white/15 bg-white/10 p-6 shadow-elegant backdrop-blur-md sm:p-8">
+          <div className="mb-2 w-full max-w-md lg:max-w-[42%]">
+            <div className="rounded-2xl border border-white/20 bg-white/10 p-5 shadow-elegant backdrop-blur-[20px] sm:p-6">
               <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
                 {items.length} Products
               </span>
-              <h1 className="mt-4 text-3xl font-semibold tracking-tight hero-heading sm:text-4xl lg:text-5xl">
+              <h1
+                className="mt-3 hero-heading font-semibold tracking-tight text-white"
+                style={{ fontSize: "clamp(1.75rem, 4vw, 3.5rem)", lineHeight: 1.1 }}
+              >
                 {category.shortName}
               </h1>
+              <p className="mt-2 text-[15px] sm:text-[17px] font-normal leading-snug text-white/85">
+                Premium export-grade quality, sourced and packed for global buyers.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {badges.map((b) => (
+                  <span
+                    key={b.label}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur"
+                  >
+                    <span aria-hidden>{b.icon}</span> {b.label}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
