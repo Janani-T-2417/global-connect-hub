@@ -82,7 +82,7 @@ export function Footer() {
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-gold" /> +91 00000 00000</li>
             <li className="flex items-center gap-2"><Globe className="h-4 w-4 text-brand-gold" /> www.jakkiexim.com</li>
           </ul>
-          <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full bg-gradient-vibrant px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
+          <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
             <Send className="h-3.5 w-3.5" /> Request a Quote
           </Link>
         </div>

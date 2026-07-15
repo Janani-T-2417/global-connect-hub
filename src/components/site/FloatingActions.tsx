@@ -14,7 +14,7 @@ export function FloatingActions() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           aria-label="Scroll to top"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-elegant transition hover:scale-110"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#0B1F3A] text-white shadow-elegant transition hover:scale-110 hover:bg-[#15803D]"
         >
           <ArrowUp className="h-5 w-5" />
         </button>
@@ -24,9 +24,9 @@ export function FloatingActions() {
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-glow transition hover:scale-110"
+        className="group relative inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#15803D] text-white shadow-glow transition hover:scale-110 hover:bg-[#0B1F3A]"
       >
-        <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#25D366] opacity-40" />
+        <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#15803D] opacity-40" />
         <MessageCircle className="h-6 w-6" />
       </a>
     </div>

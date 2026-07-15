@@ -40,7 +40,7 @@ export default function About() {
             compliant documentation and on-time delivery. We treat every buyer as a long-term
             partner — not a transaction.
           </p>
-          <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-vibrant px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:brightness-110">
+          <Link to="/contact" className="mt-8 inline-flex items-center gap-2 rounded-full btn-gradient px-6 py-3.5 text-sm font-bold text-white shadow-glow hover:brightness-110">
             Partner With Us <ArrowRight className="h-4 w-4" />
           </Link>
         </div>

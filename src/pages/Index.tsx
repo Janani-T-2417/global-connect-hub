@@ -261,12 +261,12 @@ function FeaturedProducts() {
                 </Link>
                 <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
                 <div className="mt-4 flex items-center gap-2">
-                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-[11px] font-bold text-primary-foreground transition hover:brightness-110">
+                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
                   <a href={`https://wa.me/910000000000?text=${encodeURIComponent("Hi JAKKI EXIM, I'm interested in " + p.name)}`}
                      target="_blank" rel="noreferrer"
-                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-3 py-2 text-[11px] font-bold text-white transition hover:brightness-110">
+                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
                   </a>
                 </div>
@@ -407,13 +407,13 @@ function CTA() {
           <div className="flex flex-wrap gap-4 md:justify-end">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-primary shadow-lg transition hover:scale-[1.02]"
+              className="box-border inline-flex h-[52px] items-center justify-center gap-2 rounded-full bg-[#0B1F3A] px-[34px] py-[16px] text-sm font-semibold text-white transition-all duration-300 shadow-[0_12px_30px_rgba(11,31,58,0.25)] hover:-translate-y-[3px] hover:bg-[linear-gradient(135deg,#0B1F3A_0%,#D4AF37_100%)]"
             >
               Start an Enquiry <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
+              className="box-border inline-flex h-[52px] items-center justify-center gap-2 rounded-full border-2 border-white bg-transparent px-[34px] py-[16px] text-sm font-semibold text-white transition-all duration-300 shadow-[0_12px_30px_rgba(11,31,58,0.25)] hover:-translate-y-[3px] hover:border-transparent hover:bg-[linear-gradient(135deg,#0B1F3A_0%,#D4AF37_100%)] hover:text-white"
             >
               Browse Catalogue
             </Link>

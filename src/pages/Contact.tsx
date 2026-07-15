@@ -47,10 +47,10 @@ export default function Contact() {
             </div>
           ))}
           <div className="flex flex-wrap gap-2">
-            <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-glow hover:brightness-110">
+            <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#15803D] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#0B1F3A]">
               <MessageCircle className="h-4 w-4" /> WhatsApp Inquiry
             </a>
-            <a href="mailto:info@jakkiexim.com" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-primary-foreground shadow-glow hover:brightness-110">
+            <a href="mailto:info@jakkiexim.com" className="inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#15803D]">
               <Mail className="h-4 w-4" /> Email Inquiry
             </a>
           </div>
@@ -124,7 +124,7 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full bg-gradient-vibrant px-6 py-4 text-sm font-bold text-white shadow-glow transition hover:brightness-110"
+                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full btn-gradient px-6 py-4 text-sm font-bold text-white shadow-glow transition hover:brightness-110"
                 >
                   Send Enquiry <Send className="h-4 w-4" />
                 </button>

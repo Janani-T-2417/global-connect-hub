@@ -145,7 +145,7 @@ export default function CategoryPage() {
             </nav>
             <Link
               to="/products"
-              className="group inline-flex items-center gap-1.5 rounded-full bg-primary/85 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/15 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent hover:shadow-elegant"
+              className="group inline-flex items-center gap-1.5 rounded-full bg-[#0B1F3A] px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/15 backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#15803D] hover:shadow-elegant"
             >
               <ArrowLeft className="h-3.5 w-3.5 transition-transform group-hover:-translate-x-0.5" />
               Back to Products
@@ -238,12 +238,12 @@ export default function CategoryPage() {
                 </Link>
                 <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
                 <div className="mt-4 flex items-center gap-2">
-                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-primary px-3 py-2 text-[11px] font-bold text-primary-foreground transition hover:brightness-110">
+                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
                   <a href={`https://wa.me/910000000000?text=${encodeURIComponent("Hi JAKKI EXIM, I'm interested in " + p.name)}`}
                      target="_blank" rel="noreferrer"
-                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#25D366] px-3 py-2 text-[11px] font-bold text-white transition hover:brightness-110">
+                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
                   </a>
                 </div>

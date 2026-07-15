@@ -72,7 +72,7 @@ export function Navbar() {
           ))}
           <Link
             to="/contact"
-            className="inline-flex items-center rounded-full bg-gradient-vibrant px-6 py-2.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
+            className="inline-flex items-center rounded-full btn-gradient px-6 py-2.5 text-sm font-semibold text-white shadow-glow transition hover:brightness-110"
           >
             Request Quote
           </Link>
@@ -103,7 +103,7 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-gradient-vibrant px-4 py-3 text-sm font-semibold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white"
             >
               Request Quote
             </Link>

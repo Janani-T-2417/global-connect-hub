@@ -71,13 +71,13 @@ export default function ProductPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary/90"
+                className="inline-flex items-center gap-2 rounded-md bg-[#0B1F3A] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#15803D]"
               >
                 <Mail className="h-4 w-4" /> Request Quote
               </Link>
               <Link
                 to={`/products/${category.slug}`}
-                className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary"
+                className="inline-flex items-center gap-2 rounded-md border border-[#0B1F3A] bg-card px-6 py-3 text-sm font-semibold text-[#0B1F3A] transition hover:border-[#15803D] hover:bg-[#15803D]/10 hover:text-[#15803D]"
               >
                 <Package2 className="h-4 w-4" /> View Category
               </Link>
