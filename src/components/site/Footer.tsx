@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Globe, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
 import { categories } from "@/lib/products";
 
