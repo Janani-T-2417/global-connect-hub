@@ -277,6 +277,22 @@
   from { transform: scale(1.05) translate(0, 0); }
   to { transform: scale(1.15) translate(-2%, -2%); }
 }
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -240; }
+}
+@keyframes drift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-pulse-glow { animation: pulseGlow 6s ease-in-out infinite; }
+.animate-dash { stroke-dasharray: 6 10; animation: dash 12s linear infinite; }
+.animate-drift { background-size: 200% 200%; animation: drift 18s ease-in-out infinite; }
+.marquee-pause:hover .animate-marquee { animation-play-state: paused; }
 @keyframes heroFade {
   0% { opacity: 0; }
   10% { opacity: 1; }
