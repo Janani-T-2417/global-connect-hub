@@ -1,5 +1,5 @@
 ﻿import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Globe, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
 import { categories } from "@/lib/products";
 
@@ -77,10 +77,11 @@ export function Footer() {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Get In Touch</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 text-brand-gold" /> India ┬╖ Exporting Worldwide</li>
-            <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-brand-gold" /> info@jakkiexim.com</li>
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-brand-gold" /> +91 00000 00000</li>
-            <li className="flex items-center gap-2"><Globe className="h-4 w-4 text-brand-gold" /> www.jakkiexim.com</li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" /> India ┬╖ Exporting Worldwide</li>
+            <li className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0 text-brand-gold" /> info@jakkiexim.com</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0 text-brand-gold" /> +91 00000 00000</li>
+            <li className="flex items-center gap-2"><Plane className="h-4 w-4 shrink-0 text-brand-gold" /> Exporting to 30+ Countries</li>
+            <li className="flex items-center gap-2"><Clock className="h-4 w-4 shrink-0 text-brand-gold" /> Quotes within 24 Hours</li>
           </ul>
           <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
             <Send className="h-3.5 w-3.5" /> Request a Quote
