@@ -1,6 +1,6 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import logo from "@/assets/jakki-exim-logo.jpg";
 
 const nav = [
@@ -15,38 +15,17 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Top utility bar */}
-      <div className="hidden bg-primary text-primary-foreground md:block">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs sm:px-6 lg:px-8">
-          <div className="flex items-center gap-5">
-            <a href="mailto:info@jakkiexim.com" className="inline-flex items-center gap-1.5 opacity-90 hover:opacity-100">
-              <Mail className="h-3.5 w-3.5" /> info@jakkiexim.com
-            </a>
-            <a href="tel:+910000000000" className="inline-flex items-center gap-1.5 opacity-90 hover:opacity-100">
-              <Phone className="h-3.5 w-3.5" /> +91 00000 00000
-            </a>
-            <span className="hidden lg:inline opacity-75">Exporting to 30+ countries ┬╖ Quotes within 24 hours</span>
-          </div>
-          <div className="flex items-center gap-3">
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100"><Instagram className="h-3.5 w-3.5" /></a>
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook" className="opacity-80 hover:opacity-100"><Facebook className="h-3.5 w-3.5" /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100"><Linkedin className="h-3.5 w-3.5" /></a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" className="opacity-80 hover:opacity-100"><Youtube className="h-3.5 w-3.5" /></a>
-          </div>
-        </div>
-      </div>
-
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex h-24 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-center gap-4">
+      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="group flex items-center gap-3">
           <div className="relative">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-vibrant opacity-0 blur-md transition-opacity group-hover:opacity-40" />
             <img
               src={logo}
               alt="JAKKI EXIM"
-              width={72}
-              height={72}
-              className="relative h-16 w-16 rounded-xl object-contain ring-1 ring-border sm:h-[68px] sm:w-[68px]"
+              width={56}
+              height={56}
+              className="relative h-12 w-12 rounded-xl object-contain ring-1 ring-border sm:h-14 sm:w-14"
             />
           </div>
           <div className="flex flex-col leading-tight">
