@@ -202,6 +202,7 @@ export default function CategoryPage() {
 
   const items = getProductsByCategory(category.slug);
   const badges = categoryBadges[category.slug] ?? defaultBadges;
+  const theme = themes[category.slug] ?? defaultTheme;
 
   // Build a unique slideshow per category from that category's own product images.
   const slides = useMemo(() => {
@@ -225,9 +226,24 @@ export default function CategoryPage() {
   const go = (delta: number) =>
     setActive((i) => (i + delta + slides.length) % slides.length);
 
+  const particles = useMemo(() => {
+    const seed = category.slug.length;
+    return Array.from({ length: 22 }, (_, i) => ({
+      left: (i * 53 + seed * 17) % 100,
+      top: (i * 37 + seed * 11) % 100,
+      size: 3 + ((i * 7 + seed) % 6),
+      delay: (i % 6) * 0.7,
+      duration: 5 + ((i * 3) % 8),
+      alt: i % 3 === 0,
+    }));
+  }, [category.slug]);
+
   return (
     <SiteLayout>
-      <section className="relative isolate overflow-hidden h-[320px] sm:h-[400px] lg:h-[480px]">
+      <section
+        className="relative isolate overflow-hidden h-[340px] sm:h-[420px] lg:h-[500px]"
+        style={{ background: theme.gradient }}
+      >
         {/* Slideshow */}
         <div className="absolute inset-0 -z-20">
           {slides.map((src, i) => (
@@ -241,20 +257,36 @@ export default function CategoryPage() {
             />
           ))}
         </div>
-        {/* Subtle navy overlay — keep images vibrant */}
+        {/* Category-tinted cinematic overlay */}
+        <div className="absolute inset-0 -z-10" style={{ background: theme.overlay }} />
+        {/* Colored glow orbs */}
         <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(115deg, oklch(0.16 0.05 260 / 0.55) 0%, oklch(0.22 0.06 260 / 0.35) 55%, oklch(0.22 0.06 260 / 0.25) 100%)",
-          }}
+          className="pointer-events-none absolute -top-24 -left-20 h-80 w-80 rounded-full blur-3xl -z-10 animate-pulse-glow"
+          style={{ background: `radial-gradient(circle, ${theme.glowA} 0%, transparent 70%)` }}
         />
-        {/* Subtle floating particles */}
-        <div className="pointer-events-none absolute inset-0 -z-10 opacity-40">
-          <div className="absolute left-[10%] top-[20%] h-2 w-2 rounded-full bg-white/60 animate-float" />
-          <div className="absolute left-[70%] top-[30%] h-1.5 w-1.5 rounded-full bg-white/40 animate-float" style={{ animationDelay: "1.2s" }} />
-          <div className="absolute left-[40%] top-[70%] h-1 w-1 rounded-full bg-white/50 animate-float" style={{ animationDelay: "2.4s" }} />
-          <div className="absolute left-[85%] top-[65%] h-2 w-2 rounded-full bg-white/30 animate-float" style={{ animationDelay: "0.6s" }} />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-20 h-96 w-96 rounded-full blur-3xl -z-10 animate-pulse-glow"
+          style={{ background: `radial-gradient(circle, ${theme.glowB} 0%, transparent 70%)`, animationDelay: "2s" }}
+        />
+        {/* Floating category particles */}
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          {particles.map((p, i) => (
+            <span
+              key={i}
+              className="absolute rounded-full animate-float"
+              style={{
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                background: p.alt ? theme.particleAlt : theme.particle,
+                boxShadow: `0 0 12px ${p.alt ? theme.particleAlt : theme.particle}`,
+                opacity: 0.7,
+                animationDelay: `${p.delay}s`,
+                animationDuration: `${p.duration}s`,
+              }}
+            />
+          ))}
         </div>
 
         {/* Content */}
@@ -277,9 +309,19 @@ export default function CategoryPage() {
           </div>
 
           <div className="mb-2 w-full max-w-md lg:max-w-[42%]">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-5 shadow-elegant backdrop-blur-[20px] sm:p-6">
-              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                {items.length} Products
+            <div
+              className="rounded-3xl p-5 sm:p-6 backdrop-blur-xl"
+              style={{
+                background: theme.panelBg,
+                border: `1px solid ${theme.panelBorder}`,
+                boxShadow: theme.panelShadow,
+              }}
+            >
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow-lg"
+                style={{ background: theme.badgeBg, color: theme.badgeText, border: `1px solid ${theme.badgeBorder}` }}
+              >
+                <span aria-hidden>{theme.emoji}</span> {items.length} Products
               </span>
               <h1
                 className="mt-3 hero-heading font-semibold tracking-tight text-white"
@@ -294,7 +336,12 @@ export default function CategoryPage() {
                 {badges.map((b) => (
                   <span
                     key={b.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur"
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold backdrop-blur"
+                    style={{
+                      background: theme.chipBg,
+                      color: theme.chipText,
+                      border: `1px solid ${theme.panelBorder}`,
+                    }}
                   >
                     <span aria-hidden>{b.icon}</span> {b.label}
                   </span>
