@@ -6,6 +6,130 @@ import { ArrowLeft, ChevronRight, Mail, MessageCircle } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight as ChevronRightIcon } from "lucide-react";
 
+type CategoryTheme = {
+  gradient: string; overlay: string;
+  panelBg: string; panelBorder: string; panelShadow: string;
+  badgeBg: string; badgeBorder: string; badgeText: string;
+  chipBg: string; chipText: string;
+  glowA: string; glowB: string;
+  particle: string; particleAlt: string; emoji: string;
+};
+
+const themes: Record<string, CategoryTheme> = {
+  "biodegradable-and-eco-friendly-products-sustainable-tableware-eco-packaging": {
+    gradient: "linear-gradient(125deg, #0A1D3A 0%, #0F3B2E 55%, #15803D 100%)",
+    overlay: "linear-gradient(120deg, rgba(10,29,58,0.72) 0%, rgba(21,128,61,0.55) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(10,29,58,0.88) 0%, rgba(21,128,61,0.85) 100%)",
+    panelBorder: "rgba(134,239,172,0.45)", panelShadow: "0 30px 80px -20px rgba(21,128,61,0.55)",
+    badgeBg: "linear-gradient(90deg,#15803D,#22c55e)", badgeBorder: "rgba(187,247,208,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(187,247,208,0.18)", chipText: "#ecfdf5",
+    glowA: "rgba(34,197,94,0.5)", glowB: "rgba(59,130,246,0.35)",
+    particle: "#86efac", particleAlt: "#bbf7d0", emoji: "🌿",
+  },
+  "natural-honey": {
+    gradient: "linear-gradient(125deg, #3a1d05 0%, #78350f 45%, #d4af37 100%)",
+    overlay: "linear-gradient(120deg, rgba(58,29,5,0.72) 0%, rgba(212,175,55,0.45) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(58,29,5,0.9) 0%, rgba(146,64,14,0.88) 100%)",
+    panelBorder: "rgba(251,191,36,0.55)", panelShadow: "0 30px 80px -20px rgba(212,175,55,0.55)",
+    badgeBg: "linear-gradient(90deg,#d97706,#fbbf24)", badgeBorder: "rgba(253,224,71,0.45)", badgeText: "#3a1d05",
+    chipBg: "rgba(253,224,71,0.2)", chipText: "#fef3c7",
+    glowA: "rgba(251,191,36,0.55)", glowB: "rgba(217,119,6,0.4)",
+    particle: "#fbbf24", particleAlt: "#fde68a", emoji: "🍯",
+  },
+  "agricultural-dehydrated-powders": {
+    gradient: "linear-gradient(125deg, #4c1d95 0%, #7c2d92 50%, #ea580c 100%)",
+    overlay: "linear-gradient(120deg, rgba(76,29,149,0.7) 0%, rgba(234,88,12,0.45) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(76,29,149,0.9) 0%, rgba(124,45,146,0.88) 100%)",
+    panelBorder: "rgba(251,146,60,0.55)", panelShadow: "0 30px 80px -20px rgba(124,45,146,0.6)",
+    badgeBg: "linear-gradient(90deg,#7c3aed,#f97316)", badgeBorder: "rgba(253,186,116,0.45)", badgeText: "#ffffff",
+    chipBg: "rgba(253,186,116,0.18)", chipText: "#fff7ed",
+    glowA: "rgba(168,85,247,0.55)", glowB: "rgba(249,115,22,0.5)",
+    particle: "#f97316", particleAlt: "#c084fc", emoji: "✨",
+  },
+  "food-industrial-powders": {
+    gradient: "linear-gradient(125deg, #4c1d95 0%, #7c2d92 50%, #ea580c 100%)",
+    overlay: "linear-gradient(120deg, rgba(76,29,149,0.7) 0%, rgba(234,88,12,0.45) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(76,29,149,0.9) 0%, rgba(124,45,146,0.88) 100%)",
+    panelBorder: "rgba(251,146,60,0.55)", panelShadow: "0 30px 80px -20px rgba(124,45,146,0.6)",
+    badgeBg: "linear-gradient(90deg,#7c3aed,#f97316)", badgeBorder: "rgba(253,186,116,0.45)", badgeText: "#ffffff",
+    chipBg: "rgba(253,186,116,0.18)", chipText: "#fff7ed",
+    glowA: "rgba(168,85,247,0.55)", glowB: "rgba(249,115,22,0.5)",
+    particle: "#f97316", particleAlt: "#c084fc", emoji: "✨",
+  },
+  "millets-powders": {
+    gradient: "linear-gradient(125deg, #3f2712 0%, #78450f 50%, #d4a537 100%)",
+    overlay: "linear-gradient(120deg, rgba(63,39,18,0.72) 0%, rgba(212,165,55,0.4) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(63,39,18,0.9) 0%, rgba(120,69,15,0.88) 100%)",
+    panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(120,69,15,0.6)",
+    badgeBg: "linear-gradient(90deg,#92400e,#eab308)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.15)", chipText: "#fef9c3",
+    glowA: "rgba(234,179,8,0.5)", glowB: "rgba(146,64,14,0.5)",
+    particle: "#eab308", particleAlt: "#fde047", emoji: "🌾",
+  },
+  "wooden-pressed-virgin-oils": {
+    gradient: "linear-gradient(125deg, #14351a 0%, #3f5f1e 50%, #d4af37 100%)",
+    overlay: "linear-gradient(120deg, rgba(20,53,26,0.72) 0%, rgba(212,175,55,0.4) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(20,53,26,0.9) 0%, rgba(63,95,30,0.88) 100%)",
+    panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(63,95,30,0.6)",
+    badgeBg: "linear-gradient(90deg,#3f5f1e,#d4af37)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.15)", chipText: "#fefce8",
+    glowA: "rgba(212,175,55,0.5)", glowB: "rgba(63,95,30,0.5)",
+    particle: "#d4af37", particleAlt: "#a3e635", emoji: "🫒",
+  },
+  "fashion-accessories-imitation-jewellery": {
+    gradient: "linear-gradient(125deg, #0a0a0a 0%, #2e1065 55%, #6b21a8 100%)",
+    overlay: "linear-gradient(120deg, rgba(10,10,10,0.75) 0%, rgba(107,33,168,0.5) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(10,10,10,0.92) 0%, rgba(46,16,101,0.9) 100%)",
+    panelBorder: "rgba(212,175,55,0.6)", panelShadow: "0 30px 80px -20px rgba(107,33,168,0.55)",
+    badgeBg: "linear-gradient(90deg,#6b21a8,#d4af37)", badgeBorder: "rgba(253,224,71,0.5)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.15)", chipText: "#fef9c3",
+    glowA: "rgba(212,175,55,0.5)", glowB: "rgba(168,85,247,0.5)",
+    particle: "#fde047", particleAlt: "#c084fc", emoji: "✨",
+  },
+  "agro-commodities-fresh-dried": {
+    gradient: "linear-gradient(125deg, #7f1d1d 0%, #b91c1c 50%, #f59e0b 100%)",
+    overlay: "linear-gradient(120deg, rgba(127,29,29,0.72) 0%, rgba(245,158,11,0.45) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(127,29,29,0.9) 0%, rgba(185,28,28,0.88) 100%)",
+    panelBorder: "rgba(251,191,36,0.55)", panelShadow: "0 30px 80px -20px rgba(185,28,28,0.55)",
+    badgeBg: "linear-gradient(90deg,#b91c1c,#f59e0b)", badgeBorder: "rgba(253,224,71,0.45)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.18)", chipText: "#fff7ed",
+    glowA: "rgba(245,158,11,0.5)", glowB: "rgba(220,38,38,0.5)",
+    particle: "#f59e0b", particleAlt: "#fca5a5", emoji: "🌶️",
+  },
+  "agricultural-starches-flours-milling-products": {
+    gradient: "linear-gradient(125deg, #6b3410 0%, #b45309 55%, #d97706 100%)",
+    overlay: "linear-gradient(120deg, rgba(107,52,16,0.7) 0%, rgba(217,119,6,0.45) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(107,52,16,0.9) 0%, rgba(180,83,9,0.88) 100%)",
+    panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(180,83,9,0.55)",
+    badgeBg: "linear-gradient(90deg,#92400e,#d97706)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.15)", chipText: "#fef3c7",
+    glowA: "rgba(217,119,6,0.5)", glowB: "rgba(146,64,14,0.5)",
+    particle: "#d97706", particleAlt: "#fbbf24", emoji: "🌾",
+  },
+  "animal-feed-oil-cakes": {
+    gradient: "linear-gradient(125deg, #052e16 0%, #14532d 55%, #713f12 100%)",
+    overlay: "linear-gradient(120deg, rgba(5,46,22,0.72) 0%, rgba(113,63,18,0.5) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(5,46,22,0.9) 0%, rgba(20,83,45,0.88) 100%)",
+    panelBorder: "rgba(134,239,172,0.4)", panelShadow: "0 30px 80px -20px rgba(20,83,45,0.6)",
+    badgeBg: "linear-gradient(90deg,#14532d,#a16207)", badgeBorder: "rgba(187,247,208,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(187,247,208,0.15)", chipText: "#dcfce7",
+    glowA: "rgba(34,197,94,0.4)", glowB: "rgba(161,98,7,0.5)",
+    particle: "#a3e635", particleAlt: "#ca8a04", emoji: "🐄",
+  },
+  "premium-superfood-botanical-powders": {
+    gradient: "linear-gradient(125deg, #14532d 0%, #4d7c0f 55%, #d4af37 100%)",
+    overlay: "linear-gradient(120deg, rgba(20,83,45,0.72) 0%, rgba(212,175,55,0.4) 100%)",
+    panelBg: "linear-gradient(160deg, rgba(20,83,45,0.9) 0%, rgba(77,124,15,0.88) 100%)",
+    panelBorder: "rgba(212,175,55,0.5)", panelShadow: "0 30px 80px -20px rgba(77,124,15,0.6)",
+    badgeBg: "linear-gradient(90deg,#4d7c0f,#d4af37)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
+    chipBg: "rgba(253,224,71,0.15)", chipText: "#f7fee7",
+    glowA: "rgba(163,230,53,0.45)", glowB: "rgba(212,175,55,0.45)",
+    particle: "#a3e635", particleAlt: "#fde047", emoji: "🌿",
+  },
+};
+
+const defaultTheme: CategoryTheme = themes["biodegradable-and-eco-friendly-products-sustainable-tableware-eco-packaging"];
+
 const categoryBadges: Record<string, { icon: string; label: string }[]> = {
   "biodegradable-and-eco-friendly-products-sustainable-tableware-eco-packaging": [
     { icon: "♻️", label: "Compostable" },
@@ -78,6 +202,7 @@ export default function CategoryPage() {
 
   const items = getProductsByCategory(category.slug);
   const badges = categoryBadges[category.slug] ?? defaultBadges;
+  const theme = themes[category.slug] ?? defaultTheme;
 
   // Build a unique slideshow per category from that category's own product images.
   const slides = useMemo(() => {
@@ -101,9 +226,24 @@ export default function CategoryPage() {
   const go = (delta: number) =>
     setActive((i) => (i + delta + slides.length) % slides.length);
 
+  const particles = useMemo(() => {
+    const seed = category.slug.length;
+    return Array.from({ length: 22 }, (_, i) => ({
+      left: (i * 53 + seed * 17) % 100,
+      top: (i * 37 + seed * 11) % 100,
+      size: 3 + ((i * 7 + seed) % 6),
+      delay: (i % 6) * 0.7,
+      duration: 5 + ((i * 3) % 8),
+      alt: i % 3 === 0,
+    }));
+  }, [category.slug]);
+
   return (
     <SiteLayout>
-      <section className="relative isolate overflow-hidden h-[320px] sm:h-[400px] lg:h-[480px]">
+      <section
+        className="relative isolate overflow-hidden h-[340px] sm:h-[420px] lg:h-[500px]"
+        style={{ background: theme.gradient }}
+      >
         {/* Slideshow */}
         <div className="absolute inset-0 -z-20">
           {slides.map((src, i) => (
@@ -117,20 +257,36 @@ export default function CategoryPage() {
             />
           ))}
         </div>
-        {/* Subtle navy overlay — keep images vibrant */}
+        {/* Category-tinted cinematic overlay */}
+        <div className="absolute inset-0 -z-10" style={{ background: theme.overlay }} />
+        {/* Colored glow orbs */}
         <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(115deg, oklch(0.16 0.05 260 / 0.55) 0%, oklch(0.22 0.06 260 / 0.35) 55%, oklch(0.22 0.06 260 / 0.25) 100%)",
-          }}
+          className="pointer-events-none absolute -top-24 -left-20 h-80 w-80 rounded-full blur-3xl -z-10 animate-pulse-glow"
+          style={{ background: `radial-gradient(circle, ${theme.glowA} 0%, transparent 70%)` }}
         />
-        {/* Subtle floating particles */}
-        <div className="pointer-events-none absolute inset-0 -z-10 opacity-40">
-          <div className="absolute left-[10%] top-[20%] h-2 w-2 rounded-full bg-white/60 animate-float" />
-          <div className="absolute left-[70%] top-[30%] h-1.5 w-1.5 rounded-full bg-white/40 animate-float" style={{ animationDelay: "1.2s" }} />
-          <div className="absolute left-[40%] top-[70%] h-1 w-1 rounded-full bg-white/50 animate-float" style={{ animationDelay: "2.4s" }} />
-          <div className="absolute left-[85%] top-[65%] h-2 w-2 rounded-full bg-white/30 animate-float" style={{ animationDelay: "0.6s" }} />
+        <div
+          className="pointer-events-none absolute -bottom-24 -right-20 h-96 w-96 rounded-full blur-3xl -z-10 animate-pulse-glow"
+          style={{ background: `radial-gradient(circle, ${theme.glowB} 0%, transparent 70%)`, animationDelay: "2s" }}
+        />
+        {/* Floating category particles */}
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          {particles.map((p, i) => (
+            <span
+              key={i}
+              className="absolute rounded-full animate-float"
+              style={{
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                background: p.alt ? theme.particleAlt : theme.particle,
+                boxShadow: `0 0 12px ${p.alt ? theme.particleAlt : theme.particle}`,
+                opacity: 0.7,
+                animationDelay: `${p.delay}s`,
+                animationDuration: `${p.duration}s`,
+              }}
+            />
+          ))}
         </div>
 
         {/* Content */}
@@ -153,9 +309,19 @@ export default function CategoryPage() {
           </div>
 
           <div className="mb-2 w-full max-w-md lg:max-w-[42%]">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-5 shadow-elegant backdrop-blur-[20px] sm:p-6">
-              <span className="inline-flex items-center rounded-full bg-accent px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                {items.length} Products
+            <div
+              className="rounded-3xl p-5 sm:p-6 backdrop-blur-xl"
+              style={{
+                background: theme.panelBg,
+                border: `1px solid ${theme.panelBorder}`,
+                boxShadow: theme.panelShadow,
+              }}
+            >
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow-lg"
+                style={{ background: theme.badgeBg, color: theme.badgeText, border: `1px solid ${theme.badgeBorder}` }}
+              >
+                <span aria-hidden>{theme.emoji}</span> {items.length} Products
               </span>
               <h1
                 className="mt-3 hero-heading font-semibold tracking-tight text-white"
@@ -170,7 +336,12 @@ export default function CategoryPage() {
                 {badges.map((b) => (
                   <span
                     key={b.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur"
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold backdrop-blur"
+                    style={{
+                      background: theme.chipBg,
+                      color: theme.chipText,
+                      border: `1px solid ${theme.panelBorder}`,
+                    }}
                   >
                     <span aria-hidden>{b.icon}</span> {b.label}
                   </span>
