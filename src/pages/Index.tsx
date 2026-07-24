@@ -11,6 +11,7 @@ import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
 import hero4 from "@/assets/hero-4.jpg";
+import { whatsappUrl } from "@/lib/contact";
 
 const slides = [
   { img: hero1, eyebrow: "Global Trade Reimagined", title: "A Local Promise.", accent: "A Global Standard.", desc: "JAKKI EXIM ships India's finest farms, factories and artisans to buyers across 30+ countries — with certifications, documentation and on-time containers." },
@@ -264,7 +265,7 @@ function FeaturedProducts() {
                   <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
-                  <a href={`https://wa.me/910000000000?text=${encodeURIComponent("Hi JAKKI EXIM, I'm interested in " + p.name)}`}
+                  <a href={whatsappUrl}
                      target="_blank" rel="noreferrer"
                      className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp

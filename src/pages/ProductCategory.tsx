@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { categories, getCategory, getProductsByCategory } from "@/lib/products";
 import { getProductImage } from "@/lib/productImages";
+import { whatsappUrl } from "@/lib/contact";
 import { ArrowLeft, ChevronRight, Mail, MessageCircle } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight as ChevronRightIcon } from "lucide-react";
@@ -11,8 +12,7 @@ type CategoryTheme = {
   panelBg: string; panelBorder: string; panelShadow: string;
   badgeBg: string; badgeBorder: string; badgeText: string;
   chipBg: string; chipText: string;
-  glowA: string; glowB: string;
-  particle: string; particleAlt: string; emoji: string;
+  emoji: string;
 };
 
 const themes: Record<string, CategoryTheme> = {
@@ -23,8 +23,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(134,239,172,0.45)", panelShadow: "0 30px 80px -20px rgba(21,128,61,0.55)",
     badgeBg: "linear-gradient(90deg,#15803D,#22c55e)", badgeBorder: "rgba(187,247,208,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(187,247,208,0.18)", chipText: "#ecfdf5",
-    glowA: "rgba(34,197,94,0.5)", glowB: "rgba(59,130,246,0.35)",
-    particle: "#86efac", particleAlt: "#bbf7d0", emoji: "🌿",
+    emoji: "🌿",
   },
   "natural-honey": {
     gradient: "linear-gradient(125deg, #3a1d05 0%, #78350f 45%, #d4af37 100%)",
@@ -33,8 +32,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,191,36,0.55)", panelShadow: "0 30px 80px -20px rgba(212,175,55,0.55)",
     badgeBg: "linear-gradient(90deg,#d97706,#fbbf24)", badgeBorder: "rgba(253,224,71,0.45)", badgeText: "#3a1d05",
     chipBg: "rgba(253,224,71,0.2)", chipText: "#fef3c7",
-    glowA: "rgba(251,191,36,0.55)", glowB: "rgba(217,119,6,0.4)",
-    particle: "#fbbf24", particleAlt: "#fde68a", emoji: "🍯",
+    emoji: "🍯",
   },
   "agricultural-dehydrated-powders": {
     gradient: "linear-gradient(125deg, #4c1d95 0%, #7c2d92 50%, #ea580c 100%)",
@@ -43,8 +41,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,146,60,0.55)", panelShadow: "0 30px 80px -20px rgba(124,45,146,0.6)",
     badgeBg: "linear-gradient(90deg,#7c3aed,#f97316)", badgeBorder: "rgba(253,186,116,0.45)", badgeText: "#ffffff",
     chipBg: "rgba(253,186,116,0.18)", chipText: "#fff7ed",
-    glowA: "rgba(168,85,247,0.55)", glowB: "rgba(249,115,22,0.5)",
-    particle: "#f97316", particleAlt: "#c084fc", emoji: "✨",
+    emoji: "✨",
   },
   "food-industrial-powders": {
     gradient: "linear-gradient(125deg, #4c1d95 0%, #7c2d92 50%, #ea580c 100%)",
@@ -53,8 +50,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,146,60,0.55)", panelShadow: "0 30px 80px -20px rgba(124,45,146,0.6)",
     badgeBg: "linear-gradient(90deg,#7c3aed,#f97316)", badgeBorder: "rgba(253,186,116,0.45)", badgeText: "#ffffff",
     chipBg: "rgba(253,186,116,0.18)", chipText: "#fff7ed",
-    glowA: "rgba(168,85,247,0.55)", glowB: "rgba(249,115,22,0.5)",
-    particle: "#f97316", particleAlt: "#c084fc", emoji: "✨",
+    emoji: "✨",
   },
   "millets-powders": {
     gradient: "linear-gradient(125deg, #3f2712 0%, #78450f 50%, #d4a537 100%)",
@@ -63,8 +59,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(120,69,15,0.6)",
     badgeBg: "linear-gradient(90deg,#92400e,#eab308)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.15)", chipText: "#fef9c3",
-    glowA: "rgba(234,179,8,0.5)", glowB: "rgba(146,64,14,0.5)",
-    particle: "#eab308", particleAlt: "#fde047", emoji: "🌾",
+    emoji: "🌾",
   },
   "wooden-pressed-virgin-oils": {
     gradient: "linear-gradient(125deg, #14351a 0%, #3f5f1e 50%, #d4af37 100%)",
@@ -73,8 +68,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(63,95,30,0.6)",
     badgeBg: "linear-gradient(90deg,#3f5f1e,#d4af37)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.15)", chipText: "#fefce8",
-    glowA: "rgba(212,175,55,0.5)", glowB: "rgba(63,95,30,0.5)",
-    particle: "#d4af37", particleAlt: "#a3e635", emoji: "🫒",
+    emoji: "🫒",
   },
   "fashion-accessories-imitation-jewellery": {
     gradient: "linear-gradient(125deg, #0a0a0a 0%, #2e1065 55%, #6b21a8 100%)",
@@ -83,8 +77,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(212,175,55,0.6)", panelShadow: "0 30px 80px -20px rgba(107,33,168,0.55)",
     badgeBg: "linear-gradient(90deg,#6b21a8,#d4af37)", badgeBorder: "rgba(253,224,71,0.5)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.15)", chipText: "#fef9c3",
-    glowA: "rgba(212,175,55,0.5)", glowB: "rgba(168,85,247,0.5)",
-    particle: "#fde047", particleAlt: "#c084fc", emoji: "✨",
+    emoji: "✨",
   },
   "agro-commodities-fresh-dried": {
     gradient: "linear-gradient(125deg, #7f1d1d 0%, #b91c1c 50%, #f59e0b 100%)",
@@ -93,8 +86,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,191,36,0.55)", panelShadow: "0 30px 80px -20px rgba(185,28,28,0.55)",
     badgeBg: "linear-gradient(90deg,#b91c1c,#f59e0b)", badgeBorder: "rgba(253,224,71,0.45)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.18)", chipText: "#fff7ed",
-    glowA: "rgba(245,158,11,0.5)", glowB: "rgba(220,38,38,0.5)",
-    particle: "#f59e0b", particleAlt: "#fca5a5", emoji: "🌶️",
+    emoji: "🌶️",
   },
   "agricultural-starches-flours-milling-products": {
     gradient: "linear-gradient(125deg, #6b3410 0%, #b45309 55%, #d97706 100%)",
@@ -103,8 +95,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(251,191,36,0.5)", panelShadow: "0 30px 80px -20px rgba(180,83,9,0.55)",
     badgeBg: "linear-gradient(90deg,#92400e,#d97706)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.15)", chipText: "#fef3c7",
-    glowA: "rgba(217,119,6,0.5)", glowB: "rgba(146,64,14,0.5)",
-    particle: "#d97706", particleAlt: "#fbbf24", emoji: "🌾",
+    emoji: "🌾",
   },
   "animal-feed-oil-cakes": {
     gradient: "linear-gradient(125deg, #052e16 0%, #14532d 55%, #713f12 100%)",
@@ -113,8 +104,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(134,239,172,0.4)", panelShadow: "0 30px 80px -20px rgba(20,83,45,0.6)",
     badgeBg: "linear-gradient(90deg,#14532d,#a16207)", badgeBorder: "rgba(187,247,208,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(187,247,208,0.15)", chipText: "#dcfce7",
-    glowA: "rgba(34,197,94,0.4)", glowB: "rgba(161,98,7,0.5)",
-    particle: "#a3e635", particleAlt: "#ca8a04", emoji: "🐄",
+    emoji: "🐄",
   },
   "premium-superfood-botanical-powders": {
     gradient: "linear-gradient(125deg, #14532d 0%, #4d7c0f 55%, #d4af37 100%)",
@@ -123,8 +113,7 @@ const themes: Record<string, CategoryTheme> = {
     panelBorder: "rgba(212,175,55,0.5)", panelShadow: "0 30px 80px -20px rgba(77,124,15,0.6)",
     badgeBg: "linear-gradient(90deg,#4d7c0f,#d4af37)", badgeBorder: "rgba(253,224,71,0.4)", badgeText: "#ffffff",
     chipBg: "rgba(253,224,71,0.15)", chipText: "#f7fee7",
-    glowA: "rgba(163,230,53,0.45)", glowB: "rgba(212,175,55,0.45)",
-    particle: "#a3e635", particleAlt: "#fde047", emoji: "🌿",
+    emoji: "🌿",
   },
 };
 
@@ -226,18 +215,6 @@ export default function CategoryPage() {
   const go = (delta: number) =>
     setActive((i) => (i + delta + slides.length) % slides.length);
 
-  const particles = useMemo(() => {
-    const seed = category.slug.length;
-    return Array.from({ length: 22 }, (_, i) => ({
-      left: (i * 53 + seed * 17) % 100,
-      top: (i * 37 + seed * 11) % 100,
-      size: 3 + ((i * 7 + seed) % 6),
-      delay: (i % 6) * 0.7,
-      duration: 5 + ((i * 3) % 8),
-      alt: i % 3 === 0,
-    }));
-  }, [category.slug]);
-
   return (
     <SiteLayout>
       <section
@@ -259,36 +236,6 @@ export default function CategoryPage() {
         </div>
         {/* Category-tinted cinematic overlay */}
         <div className="absolute inset-0 -z-10" style={{ background: theme.overlay }} />
-        {/* Colored glow orbs */}
-        <div
-          className="pointer-events-none absolute -top-24 -left-20 h-80 w-80 rounded-full blur-3xl -z-10 animate-pulse-glow"
-          style={{ background: `radial-gradient(circle, ${theme.glowA} 0%, transparent 70%)` }}
-        />
-        <div
-          className="pointer-events-none absolute -bottom-24 -right-20 h-96 w-96 rounded-full blur-3xl -z-10 animate-pulse-glow"
-          style={{ background: `radial-gradient(circle, ${theme.glowB} 0%, transparent 70%)`, animationDelay: "2s" }}
-        />
-        {/* Floating category particles */}
-        <div className="pointer-events-none absolute inset-0 -z-10">
-          {particles.map((p, i) => (
-            <span
-              key={i}
-              className="absolute rounded-full animate-float"
-              style={{
-                left: `${p.left}%`,
-                top: `${p.top}%`,
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                background: p.alt ? theme.particleAlt : theme.particle,
-                boxShadow: `0 0 12px ${p.alt ? theme.particleAlt : theme.particle}`,
-                opacity: 0.7,
-                animationDelay: `${p.delay}s`,
-                animationDuration: `${p.duration}s`,
-              }}
-            />
-          ))}
-        </div>
-
         {/* Content */}
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-between px-4 py-8 sm:px-6 sm:py-10 lg:px-8 text-white">
           <div className="flex flex-wrap items-center justify-between gap-4">
@@ -412,7 +359,7 @@ export default function CategoryPage() {
                   <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
-                  <a href={`https://wa.me/910000000000?text=${encodeURIComponent("Hi JAKKI EXIM, I'm interested in " + p.name)}`}
+                  <a href={whatsappUrl}
                      target="_blank" rel="noreferrer"
                      className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp

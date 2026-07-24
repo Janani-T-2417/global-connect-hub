@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, ArrowUp } from "lucide-react";
+import { whatsappUrl } from "@/lib/contact";
 
 export function FloatingActions() {
   const [show, setShow] = useState(false);
@@ -20,7 +21,7 @@ export function FloatingActions() {
         </button>
       )}
       <a
-        href="https://wa.me/910000000000?text=Hello%20JAKKI%20EXIM%2C%20I'd%20like%20to%20request%20a%20quote."
+        href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Chat on WhatsApp"

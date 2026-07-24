@@ -1,6 +1,14 @@
 import { SiteLayout } from "@/components/site/Layout";
 import { Mail, Phone, MapPin, Globe, Send, MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import {
+  contactEmail,
+  operationsOffice,
+  primaryContact,
+  registeredOffice,
+  secondaryContact,
+  whatsappUrl,
+} from "@/lib/contact";
 
 
 
@@ -29,28 +37,31 @@ export default function Contact() {
       <section className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-5 lg:px-8">
         <div className="space-y-6 lg:col-span-2">
           {[
-            { icon: Mail, label: "Email", value: "info@jakkiexim.com" },
-            { icon: Phone, label: "Phone / WhatsApp", value: "+91 00000 00000" },
-            { icon: MapPin, label: "Office", value: "India — Exporting Worldwide" },
+            { icon: Mail, label: "Email", value: contactEmail },
+            { icon: Phone, label: "Primary Contact", value: primaryContact },
+            { icon: Phone, label: "Secondary Contact", value: secondaryContact },
+            { icon: MessageCircle, label: "WhatsApp", value: primaryContact },
+            { icon: MapPin, label: "Registered Office", value: registeredOffice.join("\n") },
+            { icon: MapPin, label: "Operations Office", value: operationsOffice.join("\n") },
             { icon: Globe, label: "Website", value: "www.jakkiexim.com" },
           ].map((c) => (
-            <div key={c.label} className="flex gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition hover:-translate-y-0.5 hover:shadow-glow">
-              <div className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-vibrant text-white shadow-glow">
+            <div key={c.label} className={`flex ${c.label.includes("Office") ? "gap-3 p-4" : "gap-4 p-6"} rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-glow`}>
+              <div className={`inline-flex ${c.label.includes("Office") ? "h-11 w-11" : "h-12 w-12"} shrink-0 items-center justify-center rounded-xl bg-gradient-vibrant text-white shadow-glow`}>
                 <c.icon className="h-5 w-5" />
               </div>
               <div>
                 <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   {c.label}
                 </div>
-                <div className="mt-1 font-medium text-foreground">{c.value}</div>
+                <div className={`${c.label.includes("Office") ? "mt-0.5 leading-snug" : "mt-1"} whitespace-pre-line font-medium text-foreground`}>{c.value}</div>
               </div>
             </div>
           ))}
           <div className="flex flex-wrap gap-2">
-            <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#15803D] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#0B1F3A]">
+            <a href={whatsappUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full bg-[#15803D] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#0B1F3A]">
               <MessageCircle className="h-4 w-4" /> WhatsApp Inquiry
             </a>
-            <a href="mailto:info@jakkiexim.com" className="inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#15803D]">
+            <a href={`mailto:${contactEmail}`} className="inline-flex items-center gap-2 rounded-full bg-[#0B1F3A] px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-[#15803D]">
               <Mail className="h-4 w-4" /> Email Inquiry
             </a>
           </div>
@@ -89,17 +100,18 @@ export default function Contact() {
               </div>
             ) : (
               <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-                <Field label="Full Name *" name="name" required />
+                <Field label="Full Name" name="name" required />
                 <Field label="Company" name="company" />
-                <Field label="Email *" name="email" type="email" required />
-                <Field label="Contact Number *" name="phone" type="tel" required />
-                <Field label="Country *" name="country" required />
+                <Field label="Email" name="email" type="email" required />
+                <Field label="Contact Number" name="phone" type="tel" required />
+                <Field label="Country" name="country" required />
                 <Field label="Destination Port" name="port" />
                 <Field label="Product Interest" name="product" />
                 <Field label="Quantity" name="qty" placeholder="e.g. 5,000 kg" />
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Container Size</label>
-                  <select name="container" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
+                  <select name="container" defaultValue="" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
+                    <option value="" disabled>Select Container Size</option>
                     <option>20ft FCL</option>
                     <option>40ft FCL</option>
                     <option>40ft HC</option>
@@ -110,8 +122,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Incoterm</label>
-                  <select name="incoterm" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
-                    <option>FOB</option><option>CIF</option><option>CFR</option><option>DDP</option><option>EXW</option>
+                  <select name="incoterm" defaultValue="" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
+                    <option value="" disabled>Select Incoterm</option><option>FOB</option><option>CIF</option><option>CFR</option><option>DDP</option><option>EXW</option>
                   </select>
                 </div>
                 <div className="sm:col-span-2">
@@ -155,7 +167,11 @@ function Field({
   return (
     <div className={className}>
       <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-        {label}
+        {required ? (
+          <>
+            {label} <span className="required-star font-bold text-[#14532D]">*</span>
+          </>
+        ) : label}
       </label>
       <input
         name={name}
