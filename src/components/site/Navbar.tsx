@@ -1,7 +1,7 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import logo from "@/assets/jakki-exim-logo.jpg";
+import logoIcon from "@/assets/jakki-exim-icon.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,24 +16,24 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-3">
           <div className="relative">
             <div className="absolute -inset-1 rounded-2xl bg-gradient-vibrant opacity-0 blur-md transition-opacity group-hover:opacity-40" />
             <img
-              src={logo}
+              src={logoIcon}
               alt="JAKKI EXIM"
-              width={56}
-              height={56}
-              className="relative h-12 w-12 rounded-xl object-contain ring-1 ring-border sm:h-14 sm:w-14"
+              width={120}
+              height={64}
+              className="relative h-[56px] w-auto object-contain sm:h-[62px]"
             />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-xl font-extrabold tracking-tight text-primary sm:text-2xl">
+            <span className="text-[22px] font-extrabold tracking-tight text-primary sm:text-[26px]">
               JAKKI <span className="text-accent">EXIM</span>
             </span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground sm:text-[11px]">
-              A Local to Global Company
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px]">
+              Local Quality to Global Standards
             </span>
           </div>
         </Link>

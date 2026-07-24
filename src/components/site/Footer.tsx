@@ -10,14 +10,8 @@ export function Footer() {
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="JAKKI EXIM" width={64} height={64} className="h-16 w-16 rounded-xl bg-white object-contain p-1" />
-            <div className="leading-tight">
-              <div className="text-lg font-extrabold">JAKKI EXIM</div>
-              <div className="text-[10px] uppercase tracking-[0.22em] text-white/70">
-                A Local to Global Company
-              </div>
-            </div>
+          <div className="rounded-2xl bg-white p-4 shadow-soft inline-block">
+            <img src={logo} alt="JAKKI EXIM — Local Quality to Global Standards" className="h-24 w-auto object-contain" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
             A trusted Indian exportΓÇôimport partner connecting farm, factory, and craft to global
