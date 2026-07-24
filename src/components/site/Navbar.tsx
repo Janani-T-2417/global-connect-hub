@@ -29,10 +29,10 @@ export function Navbar() {
             />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-[22px] font-extrabold tracking-tight text-primary sm:text-[26px]">
-              JAKKI <span className="text-accent">EXIM</span>
+            <span className="font-['Cinzel'] text-[22px] font-bold tracking-[0.04em] text-[#0A1D3A] sm:text-[26px]">
+              JAKKI <span className="text-[#15803D]">EXIM</span>
             </span>
-            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:text-[11px]">
+            <span className="font-['Cinzel'] text-[10px] font-semibold tracking-[0.08em] text-foreground/75 sm:text-[11px]">
               Local Quality to Global Standards
             </span>
           </div>
