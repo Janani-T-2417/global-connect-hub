@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send } from "lucide-react";
-import logo from "@/assets/jakki-exim-logo.jpg";
+import logoIcon from "@/assets/jakki-exim-icon.png";
 import { categories } from "@/lib/products";
 
 export function Footer() {
@@ -10,8 +10,16 @@ export function Footer() {
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
-          <div className="rounded-2xl bg-white p-4 shadow-soft inline-block">
-            <img src={logo} alt="JAKKI EXIM — Local Quality to Global Standards" className="h-24 w-auto object-contain" />
+          <div className="flex flex-col items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
+            <img src={logoIcon} alt="JAKKI EXIM" className="h-20 w-auto object-contain" />
+            <div className="leading-tight">
+              <div className="font-['Cinzel'] text-2xl font-bold tracking-[0.04em] text-[#0A1D3A]">
+                JAKKI <span className="text-[#15803D]">EXIM</span>
+              </div>
+              <div className="mt-1 font-['Cinzel'] text-[11px] font-semibold tracking-[0.08em] text-foreground/70">
+                Local Quality to Global Standards
+              </div>
+            </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
             A trusted Indian exportΓÇôimport partner connecting farm, factory, and craft to global
