@@ -17,22 +17,21 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-center gap-3">
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-vibrant opacity-0 blur-md transition-opacity group-hover:opacity-40" />
-            <img
-              src={logoIcon}
-              alt="JAKKI EXIM"
-              width={120}
-              height={64}
-              className="relative h-[56px] w-auto object-contain sm:h-[62px]"
-            />
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="font-['Cinzel'] text-[22px] font-bold tracking-[0.04em] text-[#0A1D3A] sm:text-[26px]">
-              JAKKI <span className="text-[#15803D]">EXIM</span>
+        <Link to="/" className="group flex items-center gap-2">
+          <img
+            src={logoIcon}
+            alt="JAKKI EXIM icon"
+            width={940}
+            height={520}
+            decoding="async"
+            fetchPriority="high"
+            className="h-[68px] w-auto shrink-0 object-contain"
+          />
+          <div className="flex min-w-0 translate-y-1 flex-col items-center justify-center leading-none">
+            <span className="text-center font-['Cinzel'] text-[22px] font-bold tracking-[0.3px] text-[#1E4366] sm:text-[25px] lg:text-[29px]">
+              JAKKI <span className="text-[#2F8A3B]">EX</span><span className="text-[#1E4366]">IM</span>
             </span>
-            <span className="font-['Cinzel'] text-[10px] font-semibold tracking-[0.08em] text-foreground/75 sm:text-[11px]">
+            <span className="mt-2 origin-center scale-x-[0.68] whitespace-nowrap text-center font-['Cinzel'] text-[12px] font-bold leading-[1.2] tracking-[2px] text-[#1F1F1F] [font-variant-caps:small-caps] [text-rendering:optimizeLegibility] [-webkit-font-smoothing:antialiased]">
               Local Quality to Global Standards
             </span>
           </div>
