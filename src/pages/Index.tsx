@@ -63,16 +63,17 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
         <div
           key={i}
-          className="hero-reveal max-w-xl rounded-3xl border border-white/15 bg-white/[0.08] p-8 sm:p-10 lg:p-12 text-white antialiased [backdrop-filter:blur(10px)_saturate(140%)] [-webkit-backdrop-filter:blur(10px)_saturate(140%)]"
-          style={{ boxShadow: "0 20px 50px -20px rgba(0,0,0,0.45), 0 8px 24px -12px rgba(0,0,0,0.3)" }}
+          className="hero-reveal relative w-full max-w-[690px] rounded-[18px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.16),rgba(245,249,255,0.10))] p-[32px_36px] text-white shadow-[0_18px_45px_rgba(10,25,49,0.14)] backdrop-blur-[18px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.02)_100%)] [filter:drop-shadow(0_10px_35px_rgba(30,58,138,0.08))] antialiased [backdrop-filter:blur(18px)_saturate(140%)] [-webkit-backdrop-filter:blur(18px)_saturate(140%)]"
         >
+          <div className="absolute left-0 top-0 h-20 w-[2px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
+          <div className="absolute right-5 top-5 h-12 w-12 rounded-tr-[16px] border-t border-r border-white/35" />
           <span
-            className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white [backdrop-filter:blur(8px)] [-webkit-backdrop-filter:blur(8px)]"
+            className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white [backdrop-filter:blur(8px)] [-webkit-backdrop-filter:blur(8px)]"
             style={{ boxShadow: "0 4px 14px rgba(0,0,0,0.2)" }}
           >
             <Globe2 className="h-3.5 w-3.5" /> {s.eyebrow}
           </span>
-          <h1 className="hero-heading mt-7 text-[2.625rem] leading-[1.1] text-white sm:text-[3.5rem] lg:text-[4.5rem]">
+          <h1 className="hero-heading mt-6 text-[2.2rem] font-[700] leading-[1.08] tracking-[0.01em] text-white [font-family:'Cormorant_Garamond',serif] sm:text-[2.9rem] lg:text-[3.35rem]">
             <span className="block">{s.title}</span>
             <span
               className="block text-brand-gold italic"
@@ -81,10 +82,10 @@ function Hero() {
               {s.accent}
             </span>
           </h1>
-          <p className="mt-7 max-w-[520px] text-base font-normal leading-[1.75] text-white/95 sm:text-[17px]" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.35)" }}>
+          <p className="mt-5 max-w-[500px] text-[15px] font-normal leading-[1.65] text-white/95 sm:text-[16px]" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.35)" }}>
             {s.desc}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
               to="/products"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-[18px] text-sm font-bold text-primary transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-[0.98]"

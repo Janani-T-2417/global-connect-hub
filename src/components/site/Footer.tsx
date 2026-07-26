@@ -94,9 +94,9 @@ export function Footer() {
         </div>
       </div>
       <div className="relative border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-xs text-white/60 sm:flex-row sm:px-6 lg:px-8">
-          <span>┬⌐ {new Date().getFullYear()} JAKKI EXIM. All rights reserved.</span>
-          <span>Designed for international trade ┬╖ Made in India</span>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-[13px] font-[500] tracking-[0.4px] text-[rgba(255,255,255,0.88)] sm:flex-row sm:px-6 lg:px-8" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+          <span className="font-[inherit]">© {new Date().getFullYear()} JAKKI EXIM. All Rights Reserved.</span>
+          <span className="font-[inherit]">Designed for International Trade • Made in India</span>
         </div>
       </div>
     </footer>
