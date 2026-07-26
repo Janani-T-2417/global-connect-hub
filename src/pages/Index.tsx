@@ -61,21 +61,42 @@ function Hero() {
         ))}
       </div>
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div key={i} className="max-w-3xl animate-slide-fade text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.45)]">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
+        <div
+          key={i}
+          className="max-w-2xl animate-slide-fade rounded-3xl border border-white/15 bg-white/[0.07] p-7 sm:p-9 lg:p-10 text-white antialiased [backdrop-filter:blur(12px)] [-webkit-backdrop-filter:blur(12px)] [text-shadow:0_3px_10px_rgba(0,0,0,0.45),0_6px_24px_rgba(0,0,0,0.25)]"
+          style={{ boxShadow: "0 25px 60px -20px rgba(0,0,0,0.55), 0 10px 30px -15px rgba(0,0,0,0.4)" }}
+        >
+          <span
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white [backdrop-filter:blur(8px)] [-webkit-backdrop-filter:blur(8px)]"
+            style={{ boxShadow: "0 4px 14px rgba(0,0,0,0.25)" }}
+          >
             <Globe2 className="h-3.5 w-3.5" /> {s.eyebrow}
           </span>
-          <h1 className="hero-heading mt-6 text-[2.25rem] font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[72px]">
-            {s.title} <span className="text-brand-gold">{s.accent}</span>
+          <h1 className="hero-heading mt-6 text-[2.25rem] font-bold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[72px]">
+            {s.title}{" "}
+            <span
+              className="text-brand-gold"
+              style={{ textShadow: "0 3px 10px rgba(0,0,0,0.5), 0 6px 24px rgba(0,0,0,0.3)" }}
+            >
+              {s.accent}
+            </span>
           </h1>
-          <p className="mt-6 max-w-[700px] text-lg font-normal leading-[1.75] text-white/[0.92] sm:text-xl">
+          <p className="mt-6 max-w-[640px] text-lg font-medium leading-[1.8] tracking-[0.005em] text-white sm:text-xl">
             {s.desc}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/products" className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-primary shadow-elegant transition hover:scale-[1.02] hover:brightness-95">
+            <Link
+              to="/products"
+              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-primary transition hover:scale-[1.02] hover:brightness-95"
+              style={{ boxShadow: "0 12px 30px -8px rgba(0,0,0,0.45), 0 4px 12px rgba(0,0,0,0.25)" }}
+            >
               Explore Products <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link to="/contact" className="inline-flex items-center gap-2 rounded-full border-2 border-white/60 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-white/70 bg-white/10 px-8 py-4 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20"
+              style={{ boxShadow: "0 12px 30px -10px rgba(0,0,0,0.45)" }}
+            >
               Request a Quote
             </Link>
           </div>
