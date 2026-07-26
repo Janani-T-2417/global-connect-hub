@@ -55,14 +55,13 @@ function Hero() {
             width={1920}
             height={1080}
             loading={idx === 0 ? undefined : "lazy"}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${idx === i ? "opacity-100 animate-ken" : "opacity-0"}`}
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ${idx === i ? "opacity-100 animate-ken" : "opacity-0"}`}
+            style={{ objectPosition: "center center" }}
           />
         ))}
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,oklch(0.14_0.05_260/0.85)_0%,oklch(0.14_0.05_260/0.65)_60%,oklch(0.14_0.05_260/0.45)_100%)]" />
       </div>
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
-        <div key={i} className="max-w-3xl animate-slide-fade text-white">
+        <div key={i} className="max-w-3xl animate-slide-fade text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.45)]">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur">
             <Globe2 className="h-3.5 w-3.5" /> {s.eyebrow}
           </span>
