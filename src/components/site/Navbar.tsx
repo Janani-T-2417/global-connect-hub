@@ -17,7 +17,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex items-center gap-2">
+        <Link to="/" className="group flex items-center gap-[10px]">
           <img
             src={logoIcon}
             alt="JAKKI EXIM icon"
@@ -25,13 +25,13 @@ export function Navbar() {
             height={520}
             decoding="async"
             fetchPriority="high"
-            className="h-[68px] w-auto shrink-0 object-contain"
+            className="h-[40px] w-auto shrink-0 object-contain sm:h-[46px] lg:h-[52px]"
           />
-          <div className="flex min-w-0 translate-y-1 flex-col items-center justify-center leading-none">
-            <span className="text-center font-['Cinzel'] text-[22px] font-bold tracking-[0.3px] text-[#1E4366] sm:text-[25px] lg:text-[29px]">
+          <div className="flex min-w-0 translate-y-0 flex-col items-start justify-center leading-none">
+            <span className="text-left font-['Cinzel'] text-[22px] font-bold tracking-[0.3px] text-[#1E4366] sm:text-[25px] lg:text-[29px]">
               JAKKI <span className="text-[#2F8A3B]">EX</span><span className="text-[#1E4366]">IM</span>
             </span>
-            <span className="mt-2 origin-center scale-x-[0.68] whitespace-nowrap text-center font-['Cinzel'] text-[12px] font-bold leading-[1.2] tracking-[2px] text-[#1F1F1F] [font-variant-caps:small-caps] [text-rendering:optimizeLegibility] [-webkit-font-smoothing:antialiased]">
+            <span className="mt-1.5 origin-left scale-x-[0.68] whitespace-nowrap text-left font-['Cinzel'] text-[12px] font-bold leading-[1.2] tracking-[2px] text-[#1F1F1F] [font-variant-caps:small-caps] [text-rendering:optimizeLegibility] [-webkit-font-smoothing:antialiased]">
               Local Quality to Global Standards
             </span>
           </div>

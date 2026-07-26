@@ -2,8 +2,6 @@ import { Link, useParams } from "react-router-dom";
 import { SiteLayout } from "@/components/site/Layout";
 import { Ship, FileCheck2, Package, Search, Handshake, Boxes } from "lucide-react";
 
-
-
 const services = [
   { icon: Search, title: "Product Sourcing", desc: "Direct procurement from FPOs, MSMEs and artisan clusters across India with traceable supply chains." },
   { icon: FileCheck2, title: "Quality Assurance", desc: "Pre-shipment inspection, third-party lab testing and ISO/FSSAI/APEDA compliance documentation." },
