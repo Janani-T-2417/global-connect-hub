@@ -1,4 +1,5 @@
 import { SiteLayout } from "@/components/site/Layout";
+import { HeroSlider } from "@/components/site/HeroSlider";
 import { Mail, Phone, MapPin, Globe, Send, MessageCircle, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import {
@@ -9,8 +10,11 @@ import {
   secondaryContact,
   whatsappUrl,
 } from "@/lib/contact";
-
-
+import exportMeeting from "@/assets/export-meeting.jpg";
+import exportPort from "@/assets/export-port.jpg";
+import exportShip from "@/assets/export-ship.jpg";
+import exportWarehouse from "@/assets/export-warehouse.jpg";
+import exportCustoms from "@/assets/export-customs.jpg";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -20,17 +24,24 @@ export default function Contact() {
   };
   return (
     <SiteLayout>
-      <section className="relative overflow-hidden bg-gradient-vibrant py-16 text-white sm:py-20">
-        <div className="absolute -right-32 -top-32 h-80 w-80 rounded-full bg-white/15 blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white backdrop-blur">
-            Contact
-          </span>
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">Let's start exporting.</h1>
-          <p className="mt-4 max-w-2xl text-white/90">
-            Share your requirement and we'll respond within 24 hours with samples, certifications
-            and best pricing.
-          </p>
+      <section className="relative isolate overflow-hidden">
+        <HeroSlider images={[exportMeeting, exportPort, exportShip, exportCustoms, exportWarehouse]} />
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+          <div className="relative w-full max-w-[880px] rounded-[22px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-8 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[18px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] animate-[fadeUp_0.8s_ease-out] sm:p-10">
+            <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-[linear-gradient(90deg,#D4AF37_0%,#E6C85C_100%)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)]">
+              <span className="inline-flex h-2 w-2 rounded-full bg-white/90" />
+              Contact
+            </span>
+            <h1 className="mt-5 text-[2.2rem] font-bold leading-[1.1] tracking-[0.01em] text-[#0A2540] [font-family:'Cormorant_Garamond',serif] sm:text-[2.8rem] lg:text-[3.4rem]">
+              Let's Build Your <span className="text-[#17884B]">Global Business Together</span>
+            </h1>
+            <div className="mt-4 h-[2px] w-24 rounded-full bg-[linear-gradient(90deg,#D4AF37_0%,#F5D76E_100%)]" />
+            <p className="mt-5 max-w-[720px] text-[0.98rem] font-medium leading-[1.85] text-[#324A5F] sm:text-[1.05rem]">
+              Connect with JAKKI EXIM for export solutions, sourcing, documentation, compliance,
+              and worldwide logistics support.
+            </p>
+          </div>
         </div>
       </section>
 
