@@ -26,7 +26,7 @@ export function HeroSlider({ images, interval = 5500, className = "" }: HeroSlid
           }`}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0A2540]/55 via-[#0A2540]/25 to-transparent" />
     </div>
   );
 }
