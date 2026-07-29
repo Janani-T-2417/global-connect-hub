@@ -114,9 +114,9 @@ export default function Contact() {
                 <Field label="Email" name="email" type="email" required />
                 <Field label="Contact Number" name="phone" type="tel" required />
                 <Field label="Country" name="country" required />
-                <Field label="Destination Port" name="port" />
-                <Field label="Product Interest" name="product" />
-                <Field label="Quantity" name="qty" placeholder="e.g. 5,000 kg" />
+                <Field label="Destination Port" name="port" required />
+                <Field label="Product Interest" name="product" required />
+                <Field label="Quantity" name="qty" placeholder="e.g. 5,000 kg" required />
                 <div>
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Container Size</label>
                   <select name="container" defaultValue="" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
