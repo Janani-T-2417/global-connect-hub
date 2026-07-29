@@ -308,3 +308,9 @@
   40% { opacity: 0; }
   100% { opacity: 0; }
 }
+
+/* Global responsive safety: prevent unwanted horizontal scroll on all viewports */
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
