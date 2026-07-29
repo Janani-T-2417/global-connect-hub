@@ -16,8 +16,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex min-w-0 items-center gap-[10px] overflow-visible">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
+        <Link to="/" className="group flex shrink-0 items-center gap-[12px] overflow-visible pr-2">
           <img
             src={logoIcon}
             alt="JAKKI EXIM icon"
@@ -25,8 +25,8 @@ export function Navbar() {
             height={520}
             decoding="async"
             fetchPriority="high"
-            style={{ aspectRatio: "940 / 520" }}
-            className="block h-[40px] w-auto max-w-none shrink-0 object-contain sm:h-[46px] lg:h-[52px]"
+            style={{ aspectRatio: "940 / 520", objectFit: "contain" }}
+            className="block h-[42px] w-auto max-w-none shrink-0 object-contain [clip-path:none] sm:h-[48px] lg:h-[54px]"
           />
           <div className="flex min-w-0 translate-y-0 flex-col items-start justify-center leading-none">
             <span className="text-left font-['Cinzel'] text-[22px] font-bold tracking-[0.3px] text-[#1E4366] sm:text-[25px] lg:text-[29px]">
