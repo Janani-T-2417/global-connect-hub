@@ -22,7 +22,7 @@ export function Footer() {
             />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
-            A trusted Indian exportΓÇôimport partner connecting farm, factory, and craft to global
+            A trusted Indian export &amp; import partner connecting farm, factory, and craft to global
             markets with quality, compliance, and care.
           </p>
           <div className="mt-5 flex items-center gap-2">
@@ -45,9 +45,9 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             {[
               { to: "/about", label: "About Us" },
+              { to: "/products", label: "Products" },
               { to: "/services", label: "Services" },
-              { to: "/products", label: "All Products" },
-              { to: "/contact", label: "Contact" },
+              { to: "/contact", label: "Contact Us" },
             ].map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="text-white/75 transition hover:text-white">
@@ -79,8 +79,7 @@ export function Footer() {
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Get In Touch</h4>
           <ul className="mt-5 space-y-3 text-sm text-white/80">
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" /> Registered Office: 6-620-C-1, Benchikotalla, Guntakal, Andhra Pradesh - 515801</li>
-            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" /> Operations Office: 301, 3rd Floor, Venkata Giri Nagar, Kukatpally, Hyderabad - 500072</li>
+            <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" /> Office Address: 301, 3rd Floor, Venkata Giri Nagar, Vivekananda Nagar, Kukatpally, Hyderabad - 500072, Telangana, India</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0 text-brand-gold" /> {contactEmail}</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0 text-brand-gold" /> {primaryContact}</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0 text-brand-gold" /> {secondaryContact}</li>
