@@ -4,9 +4,8 @@ import { Mail, Phone, MapPin, Globe, Send, MessageCircle, Instagram, Facebook, L
 import { useState, type FormEvent } from "react";
 import {
   contactEmail,
-  operationsOffice,
+  officeAddress,
   primaryContact,
-  registeredOffice,
   secondaryContact,
   whatsappUrl,
 } from "@/lib/contact";
@@ -52,8 +51,7 @@ export default function Contact() {
             { icon: Phone, label: "Primary Contact", value: primaryContact },
             { icon: Phone, label: "Secondary Contact", value: secondaryContact },
             { icon: MessageCircle, label: "WhatsApp", value: primaryContact },
-            { icon: MapPin, label: "Registered Office", value: registeredOffice.join("\n") },
-            { icon: MapPin, label: "Operations Office", value: operationsOffice.join("\n") },
+            { icon: MapPin, label: "Office Address", value: officeAddress.join("\n") },
             { icon: Globe, label: "Website", value: "www.jakkiexim.com" },
           ].map((c) => (
             <div key={c.label} className={`flex ${c.label.includes("Office") ? "gap-3 p-4" : "gap-4 p-6"} rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-0.5 hover:shadow-glow`}>
