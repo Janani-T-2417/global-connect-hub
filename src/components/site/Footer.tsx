@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send, MessageCircle } from "lucide-react";
-import logo from "@/assets/jakki-exim-logo.jpg";
+import logoAsset from "@/assets/jakki-exim-logo-3d.jpg.asset.json";
 import { categories } from "@/lib/products";
 import { contactEmail, primaryContact, secondaryContact, whatsappUrl } from "@/lib/contact";
 
@@ -13,12 +13,11 @@ export function Footer() {
         <div className="md:col-span-1">
           <div className="flex flex-col items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
             <img
-              src={logo}
-              alt="JAKKI EXIM - Local Quality to Global Company"
-              width={1600}
-              height={874}
+              src={logoAsset.url}
+              alt="JAKKI EXIM - Local Quality to Global Standards"
+              loading="lazy"
               decoding="async"
-              className="h-20 w-auto object-contain [image-rendering:auto]"
+              className="h-24 w-auto max-w-full object-contain [image-rendering:auto]"
             />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
