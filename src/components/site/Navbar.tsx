@@ -1,7 +1,7 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import logo3d from "@/assets/jakki-exim-logo-3d.jpg";
+import logo3d from "@/assets/jakki-exim-logo-3d.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -23,8 +23,8 @@ export function Navbar() {
             alt="JAKKI EXIM — Local Quality to Global Standards"
             decoding="async"
             fetchPriority="high"
-            style={{ objectFit: "contain" }}
-            className="block h-[46px] w-auto max-w-none shrink-0 object-contain [clip-path:none] sm:h-[54px] lg:h-[62px]"
+            style={{ objectFit: "contain", backgroundColor: "transparent" }}
+            className="block h-[58px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[66px] lg:h-[74px]"
           />
         </Link>
 
