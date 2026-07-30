@@ -1,7 +1,7 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import logo3d from "@/assets/jakki-exim-logo-3d.jpg";
+import logo3d from "@/assets/jakki-exim-logo-3d.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,15 +16,15 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
+      <div className="mx-auto flex h-[86px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
         <Link to="/" className="group flex shrink-0 items-center overflow-visible pr-2">
           <img
             src={logo3d}
             alt="JAKKI EXIM — Local Quality to Global Standards"
             decoding="async"
             fetchPriority="high"
-            style={{ objectFit: "contain" }}
-            className="block h-[46px] w-auto max-w-none shrink-0 object-contain [clip-path:none] sm:h-[54px] lg:h-[62px]"
+            style={{ objectFit: "contain", backgroundColor: "transparent" }}
+            className="block h-[58px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[66px] lg:h-[74px]"
           />
         </Link>
 
