@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send, MessageCircle } from "lucide-react";
-import logo3d from "@/assets/jakki-exim-logo-3d.jpg";
+import logo3d from "@/assets/jakki-exim-logo-3d.png";
 import { categories } from "@/lib/products";
 import { contactEmail, primaryContact, secondaryContact, whatsappUrl } from "@/lib/contact";
 
