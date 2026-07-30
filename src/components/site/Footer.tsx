@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send, MessageCircle } from "lucide-react";
-import logoAsset from "@/assets/jakki-exim-logo-3d.jpg.asset.json";
+import logo3d from "@/assets/jakki-exim-logo-3d.jpg";
 import { categories } from "@/lib/products";
 import { contactEmail, primaryContact, secondaryContact, whatsappUrl } from "@/lib/contact";
 
@@ -13,7 +13,7 @@ export function Footer() {
         <div className="md:col-span-1">
           <div className="flex flex-col items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
             <img
-              src={logoAsset.url}
+              src={logo3d}
               alt="JAKKI EXIM - Local Quality to Global Standards"
               loading="lazy"
               decoding="async"

@@ -1,7 +1,7 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import logoAsset from "@/assets/jakki-exim-logo-3d.jpg.asset.json";
+import logo3d from "@/assets/jakki-exim-logo-3d.jpg";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -19,7 +19,7 @@ export function Navbar() {
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
         <Link to="/" className="group flex shrink-0 items-center overflow-visible pr-2">
           <img
-            src={logoAsset.url}
+            src={logo3d}
             alt="JAKKI EXIM — Local Quality to Global Standards"
             decoding="async"
             fetchPriority="high"
