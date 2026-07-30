@@ -10,15 +10,14 @@ export default function About() {
       <section className="relative isolate overflow-hidden">
         <img src={hero2} alt="" className="absolute inset-0 -z-10 h-full w-full scale-110 animate-ken object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-hero" />
-        <div className="inline-flex w-fit max-w-[720px] items-start justify-start px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
-          <div className="h-auto w-[720px] min-w-[720px] max-w-[720px] flex-none rounded-[18px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.90),rgba(245,249,255,0.82))] p-[32px_40px] shadow-[0_18px_45px_rgba(10,25,49,0.14)] backdrop-blur-[18px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] [filter:drop-shadow(0_10px_35px_rgba(30,58,138,0.08))] animate-[fadeUp_0.8s_ease-out]">
-            <div className="absolute right-5 top-5 h-14 w-14 rounded-tr-[20px] border-t border-r border-white/40" />
-            <div className="absolute left-0 top-0 h-20 w-[2px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
+        <div className="mx-auto flex w-full max-w-7xl items-start justify-start px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+          <div className="relative h-auto w-full max-w-[720px] rounded-[20px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-8 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[10px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] animate-[fadeUp_0.8s_ease-out] sm:p-10">
+            <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
             <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-[linear-gradient(90deg,#D4AF37_0%,#E6C85C_100%)] px-4 py-1.5 text-[11px] font-[700] uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)]">
               <span className="inline-flex h-2.5 w-2.5 rounded-full bg-white/90" />
               About JAKKI EXIM
             </span>
-            <h1 className="mt-5 text-[2.55rem] font-[700] leading-[1.1] tracking-[0.02em] text-[#0A2540] [font-family:'Cormorant_Garamond',serif] sm:text-[3.2rem] lg:text-[4rem]">
+            <h1 className="mt-5 text-[2.2rem] font-bold leading-[1.1] tracking-[0.01em] text-[#0A2540] [font-family:'Playfair_Display','Cormorant_Garamond',serif] sm:text-[2.8rem] lg:text-[3.4rem]">
               About <span className="text-[#17884B]">JAKKI EXIM</span>
             </h1>
             <div className="mt-4 h-[2px] w-24 rounded-full bg-[linear-gradient(90deg,#D4AF37_0%,#F5D76E_100%)]" />
