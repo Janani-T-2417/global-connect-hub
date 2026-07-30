@@ -60,43 +60,39 @@ function Hero() {
           />
         ))}
       </div>
-      <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <div
           key={i}
-          className="hero-reveal relative w-full max-w-[690px] rounded-[18px] border border-white/70 bg-[linear-gradient(135deg,rgba(255,255,255,0.16),rgba(245,249,255,0.10))] p-[32px_36px] text-white shadow-[0_18px_45px_rgba(10,25,49,0.14)] backdrop-blur-[18px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0.08)_45%,rgba(255,255,255,0.02)_100%)] [filter:drop-shadow(0_10px_35px_rgba(30,58,138,0.08))] antialiased [backdrop-filter:blur(18px)_saturate(140%)] [-webkit-backdrop-filter:blur(18px)_saturate(140%)]"
+          className="hero-reveal relative flex w-full max-w-[720px] flex-col items-start rounded-[20px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-8 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[10px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] sm:p-10"
         >
-          <div className="absolute left-0 top-0 h-20 w-[2px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
-          <div className="absolute right-5 top-5 h-12 w-12 rounded-tr-[16px] border-t border-r border-white/35" />
+          <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
           <span
-            className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white [backdrop-filter:blur(8px)] [-webkit-backdrop-filter:blur(8px)]"
-            style={{ boxShadow: "0 4px 14px rgba(0,0,0,0.2)" }}
+            className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-[linear-gradient(90deg,#D4AF37_0%,#E6C85C_100%)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)]"
           >
             <Globe2 className="h-3.5 w-3.5" /> {s.eyebrow}
           </span>
-          <h1 className="hero-heading mt-6 text-[2.2rem] font-[700] leading-[1.08] tracking-[0.01em] text-white [font-family:'Cormorant_Garamond',serif] sm:text-[2.9rem] lg:text-[3.35rem]">
+          <h1 className="mt-5 text-[2.1rem] font-bold leading-[1.1] tracking-[0.01em] text-[#0A2540] [font-family:'Playfair_Display','Cormorant_Garamond',serif] sm:text-[2.6rem] lg:text-[3.1rem]">
             <span className="block">{s.title}</span>
-            <span
-              className="block text-brand-gold italic"
-              style={{ textShadow: "0 3px 10px rgba(0,0,0,0.3)" }}
-            >
+            <span className="block text-[#17884B]">
               {s.accent}
             </span>
           </h1>
-          <p className="mt-5 max-w-[500px] text-[15px] font-normal leading-[1.65] text-white/95 sm:text-[16px]" style={{ textShadow: "0 2px 8px rgba(0,0,0,0.35)" }}>
+          <div className="mt-4 h-[2px] w-24 rounded-full bg-[linear-gradient(90deg,#D4AF37_0%,#F5D76E_100%)]" />
+          <p className="mt-5 max-w-[560px] text-[0.98rem] font-medium leading-[1.85] text-[#324A5F] sm:text-[1.05rem]">
             {s.desc}
           </p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               to="/products"
-              className="group inline-flex items-center gap-2 rounded-full bg-white px-8 py-[18px] text-sm font-bold text-primary transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-[0.98]"
-              style={{ boxShadow: "0 10px 24px -10px rgba(0,0,0,0.35), 0 4px 10px -4px rgba(0,0,0,0.2)" }}
+              className="group inline-flex items-center gap-2 rounded-full btn-gradient px-8 py-[16px] text-sm font-bold text-white transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-110"
+              style={{ boxShadow: "0 10px 24px -10px rgba(10,37,64,0.45)" }}
             >
               Explore Products <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/10 px-8 py-[18px] text-sm font-bold text-white backdrop-blur transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-white/20"
-              style={{ boxShadow: "0 10px 24px -12px rgba(0,0,0,0.35)" }}
+              className="inline-flex items-center gap-2 rounded-full border border-[#0A2540]/15 bg-white px-8 py-[16px] text-sm font-bold text-[#0A2540] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[#17884B]/40"
+              style={{ boxShadow: "0 10px 24px -14px rgba(10,37,64,0.4)" }}
             >
               Request a Quote
             </Link>
