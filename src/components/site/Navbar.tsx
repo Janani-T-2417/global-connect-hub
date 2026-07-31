@@ -1,7 +1,7 @@
 ﻿import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
-import logo3d from "@/assets/jakki-exim-logo-3d.png";
+import logoMark from "@/assets/jakki-exim-mark-3d.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -17,15 +17,27 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex h-[86px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
-        <Link to="/" className="group flex shrink-0 items-center overflow-visible pr-2">
+        <Link to="/" className="group flex min-w-0 shrink-0 items-center gap-3 overflow-visible sm:gap-4">
           <img
-            src={logo3d}
-            alt="JAKKI EXIM — Local Quality to Global Standards"
+            src={logoMark}
+            alt="JAKKI EXIM logo"
             decoding="async"
             fetchPriority="high"
             style={{ objectFit: "contain", backgroundColor: "transparent" }}
-            className="block h-[58px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[66px] lg:h-[74px]"
+            className="block h-[34px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[40px] lg:h-[46px]"
           />
+          <span className="flex min-w-0 flex-col justify-center leading-none">
+            <span
+              style={{ fontFamily: '"Cinzel", ui-serif, Georgia, serif' }}
+              className="whitespace-nowrap text-[17px] font-bold tracking-[0.06em] sm:text-[21px] lg:text-[24px]"
+            >
+              <span style={{ color: "#0B1F3A" }}>JAKKI</span>{" "}
+              <span style={{ color: "#15803D" }}>EXIM</span>
+            </span>
+            <span className="mt-[3px] whitespace-nowrap text-[8px] font-medium tracking-[0.12em] text-muted-foreground sm:text-[9.5px] lg:text-[10.5px]">
+              Local Quality to Global Standards
+            </span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex">
