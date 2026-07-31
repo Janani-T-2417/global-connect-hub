@@ -1,6 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Plane, Clock, Instagram, Facebook, Linkedin, Youtube, Send, MessageCircle } from "lucide-react";
-import logo3d from "@/assets/jakki-exim-logo-3d.png";
+import logoMark from "@/assets/jakki-exim-mark-3d.png";
 import { categories } from "@/lib/products";
 import { contactEmail, primaryContact, secondaryContact, whatsappUrl } from "@/lib/contact";
 
@@ -11,14 +11,25 @@ export function Footer() {
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
-          <div className="flex flex-col items-start gap-4 rounded-2xl bg-white p-5 shadow-soft">
+          <div className="flex items-center gap-4">
             <img
-              src={logo3d}
-              alt="JAKKI EXIM - Local Quality to Global Standards"
+              src={logoMark}
+              alt="JAKKI EXIM logo"
               loading="lazy"
               decoding="async"
-              className="h-24 w-auto max-w-full object-contain [image-rendering:auto]"
+              className="h-10 w-auto max-w-full shrink-0 object-contain sm:h-12"
             />
+            <span className="flex flex-col leading-none">
+              <span
+                style={{ fontFamily: '"Cinzel", ui-serif, Georgia, serif' }}
+                className="whitespace-nowrap text-[20px] font-bold tracking-[0.06em] text-white"
+              >
+                JAKKI <span className="text-brand-gold">EX</span>IM
+              </span>
+              <span className="mt-1.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.16em] text-white/70">
+                Local Quality to Global Standards
+              </span>
+            </span>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/80">
             A trusted Indian export &amp; import partner connecting farm, factory, and craft to global
