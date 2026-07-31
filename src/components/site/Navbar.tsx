@@ -24,7 +24,7 @@ export function Navbar() {
             decoding="async"
             fetchPriority="high"
             style={{ objectFit: "contain", backgroundColor: "transparent" }}
-            className="block h-[30px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[38px] lg:h-[44px]"
+            className="block h-[36px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[44px] lg:h-[52px]"
           />
           <span className="flex min-w-0 flex-col justify-center leading-none">
             <span

@@ -17,7 +17,7 @@ export function Footer() {
               alt="JAKKI EXIM logo"
               loading="lazy"
               decoding="async"
-              className="h-10 w-auto max-w-full shrink-0 object-contain sm:h-12"
+              className="h-12 w-auto max-w-full shrink-0 border-0 bg-transparent object-contain shadow-none [filter:none] sm:h-14"
             />
             <span className="flex flex-col leading-none">
               <span
