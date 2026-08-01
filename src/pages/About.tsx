@@ -72,10 +72,10 @@ export default function About() {
   return (
     <SiteLayout>
       {/* Hero */}
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate overflow-hidden min-h-[360px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[540px]">
         <HeroSlider images={[exportShip, exportPort, exportWarehouse, exportCustoms]} />
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <div className="hero-reveal relative w-full max-w-[880px] rounded-[22px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-7 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[18px] sm:p-10">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+          <div className="hero-reveal absolute top-[50px] left-[70px] w-full max-w-[680px] rounded-[22px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-6 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[18px] sm:top-[60px] sm:left-[72px] sm:p-8">
             <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
             <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-[linear-gradient(90deg,#D4AF37_0%,#E6C85C_100%)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)]">
               <span className="inline-flex h-2 w-2 rounded-full bg-white/90" />
@@ -93,7 +93,7 @@ export default function About() {
       </section>
 
       {/* Introduction */}
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
         <Reveal>
           <span className="inline-flex rounded-full bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
             Introduction
@@ -136,7 +136,7 @@ export default function About() {
       </section>
 
       {/* Core Differentiation */}
-      <section className="bg-gradient-sky py-20 lg:py-28">
+      <section className="bg-gradient-sky py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Reveal className="mx-auto max-w-4xl text-center">
             <span className="inline-flex rounded-full bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
@@ -168,7 +168,7 @@ export default function About() {
       </section>
 
       {/* Corporate Philosophy */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <Reveal className="mx-auto max-w-4xl text-center">
           <span className="inline-flex rounded-full bg-accent/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-accent">
             Our Corporate Philosophy
@@ -201,7 +201,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#0A2540_0%,#0F2E52_55%,#17884B_100%)] py-20 text-white lg:py-28">
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(135deg,#0A2540_0%,#0F2E52_55%,#17884B_100%)] py-12 text-white lg:py-16">
         <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#D4AF37]/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -242,7 +242,7 @@ export default function About() {
       </section>
 
       {/* Meeting Evolving Market Demands */}
-      <section className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-16">
         <Reveal className="order-2 lg:order-1">
           <div className="relative overflow-hidden rounded-[28px] shadow-elegant">
             <img
@@ -274,7 +274,7 @@ export default function About() {
       </section>
 
       {/* Final CTA */}
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28">
+      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 lg:px-8 lg:pb-16">
         <Reveal>
           <div className="relative overflow-hidden rounded-[32px] border border-border bg-gradient-to-br from-card via-card to-background p-10 text-center shadow-elegant sm:p-14">
             <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl" />

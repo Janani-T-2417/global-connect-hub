@@ -109,7 +109,7 @@ export default function Services() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <HeroSlider images={[exportShip, exportPort, exportCustoms, exportWarehouse, exportPackaging]} />
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
           <div className="hero-reveal relative w-full max-w-[900px] rounded-[22px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-7 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[18px] sm:p-10">
             <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
             <span className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-[linear-gradient(90deg,#D4AF37_0%,#E6C85C_100%)] px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.24em] text-white shadow-[0_10px_24px_rgba(0,0,0,0.16)]">

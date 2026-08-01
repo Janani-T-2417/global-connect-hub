@@ -45,7 +45,7 @@ function Hero() {
   }, []);
   const s = slides[i];
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden h-[420px] sm:h-[470px] md:h-[520px] lg:h-[560px]">
       <div className="absolute inset-0 -z-10">
         {slides.map((sl, idx) => (
           <img
@@ -60,10 +60,10 @@ function Hero() {
           />
         ))}
       </div>
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-0 sm:px-6 lg:px-8">
         <div
           key={i}
-          className="hero-reveal relative flex w-full max-w-[720px] flex-col items-start rounded-[20px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-8 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[10px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] sm:p-10"
+          className="hero-reveal absolute left-[7%] bottom-[9%] w-[80%] max-w-[540px] flex w-full flex-col items-start rounded-[20px] border border-white/60 bg-[linear-gradient(135deg,rgba(255,255,255,0.92),rgba(245,249,255,0.84))] p-5 shadow-[0_18px_45px_rgba(10,25,49,0.18)] backdrop-blur-[10px] [background-image:linear-gradient(180deg,rgba(255,255,255,0.45),rgba(255,255,255,0)_35%)] sm:p-6"
         >
           <div className="absolute left-0 top-6 h-16 w-[3px] rounded-full bg-[linear-gradient(180deg,#D4AF37_0%,#F5D76E_100%)]" />
           <span

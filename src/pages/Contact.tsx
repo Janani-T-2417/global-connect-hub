@@ -17,8 +17,22 @@ import exportCustoms from "@/assets/export-customs.jpg";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState<{ container?: string; incoterm?: string }>({});
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const container = String(formData.get("container") ?? "").trim();
+    const incoterm = String(formData.get("incoterm") ?? "").trim();
+    const newErrors: { container?: string; incoterm?: string } = {};
+    if (!container) {
+      newErrors.container = "Please select a Container Size.";
+    }
+    if (!incoterm) {
+      newErrors.incoterm = "Please select an Incoterm.";
+    }
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
     setSubmitted(true);
   };
   return (
@@ -78,12 +92,12 @@ export default function Contact() {
             <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Follow Us</div>
             <div className="mt-4 flex items-center gap-3">
               {[
-                { Icon: Instagram, href: "https://instagram.com" },
-                { Icon: Facebook, href: "https://facebook.com" },
-                { Icon: Linkedin, href: "https://linkedin.com" },
-                { Icon: Youtube, href: "https://youtube.com" },
+                { Icon: Instagram, href: "https://www.instagram.com/jakkiexim/" },
+                { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61590513932170" },
+                { Icon: Linkedin, href: "https://www.linkedin.com/in/jakkiexim-undefined-4b1060417/" },
+                { Icon: Youtube, href: "https://www.youtube.com/@JAKKIEXIM" },
               ].map(({ Icon, href }, i) => (
-                <a key={i} href={href} target="_blank" rel="noreferrer" className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-primary transition hover:bg-primary hover:text-primary-foreground">
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-secondary text-primary transition hover:bg-primary hover:text-primary-foreground">
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
@@ -118,8 +132,16 @@ export default function Contact() {
                 <Field label="Product Interest" name="product" required />
                 <Field label="Quantity" name="qty" placeholder="e.g. 5,000 kg" required />
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Container Size</label>
-                  <select name="container" defaultValue="" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Container Size <span className="required-star font-bold text-[#14532D]">*</span>
+                  </label>
+                  <select
+                    name="container"
+                    defaultValue=""
+                    required
+                    onChange={() => setErrors((prev) => ({ ...prev, container: undefined }))}
+                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2"
+                  >
                     <option value="" disabled>Select Container Size</option>
                     <option>20ft FCL</option>
                     <option>40ft FCL</option>
@@ -128,12 +150,31 @@ export default function Contact() {
                     <option>Air Freight</option>
                     <option>Sample</option>
                   </select>
+                  {errors.container ? (
+                    <p className="mt-2 text-sm text-red-600">{errors.container}</p>
+                  ) : null}
                 </div>
                 <div>
-                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Incoterm</label>
-                  <select name="incoterm" defaultValue="" className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2">
-                    <option value="" disabled>Select Incoterm</option><option>FOB</option><option>CIF</option><option>CFR</option><option>DDP</option><option>EXW</option>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Incoterm <span className="required-star font-bold text-[#14532D]">*</span>
+                  </label>
+                  <select
+                    name="incoterm"
+                    defaultValue=""
+                    required
+                    onChange={() => setErrors((prev) => ({ ...prev, incoterm: undefined }))}
+                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2"
+                  >
+                    <option value="" disabled>Select Incoterm</option>
+                    <option>FOB</option>
+                    <option>CIF</option>
+                    <option>CFR</option>
+                    <option>DDP</option>
+                    <option>EXW</option>
                   </select>
+                  {errors.incoterm ? (
+                    <p className="mt-2 text-sm text-red-600">{errors.incoterm}</p>
+                  ) : null}
                 </div>
                 <div className="sm:col-span-2">
                   <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Message</label>
