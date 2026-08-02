@@ -137,7 +137,7 @@ export default function About() {
       {/* Core Differentiation */}
       <section className="border-y border-[#0B2545]/8 bg-[linear-gradient(180deg,#F6F9FC_0%,#EEF5F1_100%)] py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr,0.85fr] lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.85fr] lg:gap-12">
             <Reveal>
               <Eyebrow>Our Core Differentiation</Eyebrow>
               <h2 className="mt-3.5 text-[1.6rem] font-bold leading-tight text-[#0B2545] [font-family:'Playfair_Display',serif] sm:text-[2rem]">

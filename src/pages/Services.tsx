@@ -101,7 +101,7 @@ export default function Services() {
 
       {/* Overview strip */}
       <section className="border-y border-[#0B2545]/10 bg-[linear-gradient(90deg,#0B2545_0%,#123A6B_55%,#15803D_100%)] py-8">
-        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1fr,auto] lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:px-8">
           <div>
             <span className="text-[10.5px] font-bold uppercase tracking-[0.22em] text-[#F5D76E]">Total Orchestration</span>
             <p className="mt-2 max-w-4xl text-[13.5px] font-medium leading-[1.8] text-white/95">
@@ -119,7 +119,7 @@ export default function Services() {
 
       {/* Core Service 1: Logistics */}
       <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr,1fr] lg:gap-12">
+        <div className="grid items-center gap-8 lg:grid-cols-[0.9fr_1fr] lg:gap-12">
           <Reveal>
             <img src={exportContainers} alt="Container terminal logistics operations" loading="lazy" className="aspect-[4/3] w-full rounded-2xl object-cover shadow-elegant" />
           </Reveal>
@@ -146,7 +146,7 @@ export default function Services() {
       {/* Core Service 2: Quality */}
       <section className="border-y border-[#0B2545]/8 bg-[linear-gradient(180deg,#EEF5F1_0%,#F6F9FC_100%)] py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr,0.9fr] lg:gap-12">
+          <div className="grid items-center gap-8 lg:grid-cols-[1fr_0.9fr] lg:gap-12">
             <Reveal>
               <Eyebrow>Core Service 02</Eyebrow>
               <h2 className="mt-3.5 text-[1.55rem] font-bold leading-tight text-[#0B2545] [font-family:'Playfair_Display',serif] sm:text-[1.95rem]">
@@ -253,7 +253,7 @@ export default function Services() {
         <Reveal>
           <div className="relative overflow-hidden rounded-[26px] bg-[linear-gradient(120deg,#0B2545_0%,#123A6B_60%,#15803D_100%)] p-6 text-white shadow-elegant sm:p-10">
             <div className="pointer-events-none absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#D4AF37]/25 blur-3xl" />
-            <div className="relative grid gap-5 lg:grid-cols-[auto,1fr] lg:gap-8">
+            <div className="relative grid gap-5 lg:grid-cols-[auto_1fr] lg:gap-8">
               <div className="flex gap-3">
                 <div className="inline-flex h-14 w-14 items-center justify-center rounded-xl border border-white/20 bg-white/10">
                   <Lock className="h-6 w-6 text-white" />
