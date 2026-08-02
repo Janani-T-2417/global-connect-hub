@@ -14,8 +14,6 @@ import exportProcessing from "@/assets/export-processing.jpg";
 import exportInspection from "@/assets/export-inspection.jpg";
 import exportMeeting from "@/assets/export-meeting.jpg";
 
-const NAVY = "#0B2545";
-
 const differentiators = [
   { icon: Sprout, title: "Strategic Sourcing", desc: "Premium, unrefined raw materials sourced directly from verified, ethical origins." },
   { icon: Factory, title: "Advanced Processing", desc: "Deep sector knowledge converts raw materials into premium, value-added finished goods." },
@@ -156,7 +154,7 @@ export default function About() {
                     <div className="group relative h-full overflow-hidden rounded-xl border border-[#0B2545]/10 bg-white p-4 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-glow">
                       <div className="absolute inset-x-0 top-0 h-[3px] bg-[linear-gradient(90deg,#0B2545,#15803D,#D4AF37)]" />
                       <div className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[linear-gradient(135deg,#0B2545,#15803D)] text-white">
-                        <d.icon className="h-4.5 w-4.5" />
+                        <d.icon className="h-[18px] w-[18px]" />
                       </div>
                       <h3 className="mt-2.5 text-[13.5px] font-bold leading-snug text-[#0B2545]">{d.title}</h3>
                       <p className="mt-1.5 text-[12px] font-medium leading-[1.65] text-[#333333]">{d.desc}</p>
