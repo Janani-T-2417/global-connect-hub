@@ -10,7 +10,7 @@ export function Footer() {
       <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-brand-gold/20 blur-3xl" />
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
-        <div className="md:col-span-1">
+        <div className="md:col-span-1 md:pr-8 lg:pr-10">
           <div className="flex min-w-0 items-center gap-4 sm:gap-5">
             <span className="inline-flex shrink-0 items-center justify-center rounded-full bg-white/95 p-1.5 shadow-[0_6px_18px_rgba(0,0,0,0.18)]">
               <img
@@ -18,7 +18,7 @@ export function Footer() {
                 alt="JAKKI EXIM logo"
                 decoding="async"
                 style={{ objectFit: "contain", backgroundColor: "transparent" }}
-                className="block h-[36px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[44px] lg:h-[52px]"
+                className="block h-[32px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[38px] lg:h-[44px]"
               />
             </span>
             <span className="flex min-w-0 flex-col justify-center leading-none">
@@ -26,9 +26,11 @@ export function Footer() {
                 style={{ fontFamily: '"Cinzel", ui-serif, Georgia, serif' }}
                 className="whitespace-nowrap text-[17px] font-bold tracking-[0.06em] text-white sm:text-[21px] lg:text-[24px]"
               >
-                JAKKI <span style={{ color: "#4ADE80" }}>EX</span>IM
+                <span className="text-white md:text-[#D4AF37]">JAKKI</span>{' '}
+                <span style={{ color: "#1E8E3E" }}>EX</span>
+                <span className="text-white md:text-[#D4AF37]">IM</span>
               </span>
-              <span className="mt-[3px] whitespace-nowrap text-[8px] font-medium tracking-[0.12em] text-white/70 sm:text-[9.5px] lg:text-[10.5px]">
+              <span className="mt-[3px] whitespace-normal text-[8px] md:text-[12px] leading-[1.25] font-medium tracking-[0.12em] text-white/70 sm:text-[9.5px] lg:text-[13px] lg:leading-[1.3] md:max-w-[220px]">
                 Local Quality to Global Standards
               </span>
             </span>

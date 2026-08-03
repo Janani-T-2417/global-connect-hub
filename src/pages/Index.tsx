@@ -173,7 +173,7 @@ function CategoriesSection() {
           <Link
             key={c.slug}
             to={`/products/${c.slug}`}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
+            className="group relative mx-auto w-[92%] max-w-[420px] overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
           >
             <div className="aspect-[4/3] overflow-hidden">
               <img
@@ -183,7 +183,7 @@ function CategoriesSection() {
                 className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-125"
               />
             </div>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-6 pt-20 text-white">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 pt-18 text-white">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
                 {c.count} Products
               </div>

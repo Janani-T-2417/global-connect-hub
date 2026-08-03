@@ -104,11 +104,11 @@ export default function ProductsIndex() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="flex flex-1 flex-col justify-center p-5">
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-accent">
+                <div className="flex flex-1 flex-col justify-center p-5 pt-4 md:pt-5 overflow-visible">
+                  <div className="text-[9px] md:text-[10px] font-semibold uppercase tracking-wider text-accent">
                     {c.count} Products
                   </div>
-                  <h3 className="mt-1 font-semibold leading-snug text-foreground group-hover:text-primary">
+                  <h3 className="mt-1 text-[15px] md:text-base font-semibold leading-[1.15] md:leading-snug line-clamp-3 md:line-clamp-2 break-words whitespace-normal text-foreground group-hover:text-primary">
                     {c.shortName}
                   </h3>
                   <div className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">

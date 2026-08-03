@@ -398,6 +398,11 @@ html, body, #root {
 
   /* ---------- Typography ---------- */
   h2 { font-size: clamp(1.45rem, 6vw, 1.8rem) !important; line-height: 1.25 !important; }
+
+  /* Hide slim gold decorative accent in hero panels on mobile (<=768px) */
+  @media (max-width: 768px) {
+    main > section:first-child [class*="w-[3px]"] { display: none !important; }
+  }
   h3 { font-size: 1.1rem !important; line-height: 1.35 !important; }
   h4 { font-size: 0.95rem !important; }
   p, li { font-size: 0.9rem; line-height: 1.65; }

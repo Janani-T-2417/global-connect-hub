@@ -344,13 +344,13 @@ export default function CategoryPage() {
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-125"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-primary shadow">
-                  HSN {p.hs6}
-                </span>
+                  <span className="absolute left-3 top-2 md:top-3 z-20 rounded-full bg-white/95 px-2 md:px-2.5 py-0.5 md:py-1 text-[9px] md:text-[10px] font-bold uppercase tracking-wider text-primary shadow">
+                    HSN {p.hs6}
+                  </span>
               </Link>
-              <div className="flex flex-1 flex-col p-5">
+              <div className="flex flex-1 flex-col p-5 pt-4 md:pt-5 overflow-visible">
                 <Link to={`/products/${p.categorySlug}/${p.slug}`}>
-                  <h3 className="line-clamp-2 text-sm font-bold leading-snug text-foreground transition group-hover:text-primary">
+                  <h3 className="line-clamp-3 text-[15px] md:text-[13px] font-bold leading-[1.15] md:leading-snug break-words whitespace-normal text-foreground transition group-hover:text-primary md:line-clamp-2 md:text-sm">
                     {p.name}
                   </h3>
                 </Link>
