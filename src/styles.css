@@ -319,7 +319,7 @@ html, body, #root {
    MOBILE + SMALL TABLET OPTIMISATION (<= 767px only)
    Desktop styles are untouched — every rule below is scoped to this query.
    ========================================================================== */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   img, svg, video { max-width: 100%; }
 
   /* ---------- Hero sections (page-level first section) ---------- */
@@ -447,7 +447,7 @@ html, body, #root {
   footer > div:last-child > div { padding-block: 0.9rem !important; font-size: 11px !important; text-align: center; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 900px) {
   /* compact product cards */
   [class*="p-5"] { padding: 0.7rem !important; }
   main a[class*="rounded-xl"] h3 { font-size: 0.82rem !important; }
