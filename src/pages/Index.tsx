@@ -168,7 +168,7 @@ function CategoriesSection() {
           View all products <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {categories.map((c) => (
           <Link
             key={c.slug}
@@ -221,7 +221,7 @@ function WhyUs() {
             Built for international buyers who demand reliability.
           </h2>
         </div>
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:mt-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}
@@ -255,7 +255,7 @@ function FeaturedProducts() {
           </h2>
         </div>
       </div>
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {featured.map((p) => {
           const img = categories.find((c) => c.slug === p.categorySlug)?.image;
           return (
@@ -278,7 +278,7 @@ function FeaturedProducts() {
                   </h3>
                 </Link>
                 <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
-                <div className="mt-4 flex items-center gap-2">
+                <div className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:flex-row sm:items-center sm:gap-2">
                   <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>

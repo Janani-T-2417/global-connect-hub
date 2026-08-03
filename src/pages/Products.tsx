@@ -89,7 +89,7 @@ export default function ProductsIndex() {
       {!q && (
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-foreground">Browse by Category</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map((c) => (
               <Link
                 key={c.slug}
@@ -125,7 +125,7 @@ export default function ProductsIndex() {
         <h2 className="text-2xl font-bold tracking-tight text-foreground">
           {q ? `Results (${filtered.length})` : "All Products"}
         </h2>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => {
             const catImg = categories.find((c) => c.slug === p.categorySlug)?.image;
             const img = getProductImage(p.slug) ?? catImg;
