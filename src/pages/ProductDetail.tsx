@@ -111,7 +111,7 @@ export default function ProductPage() {
       {related.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-foreground">Related Products</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {related.map((p) => {
               const catImg = categories.find((c) => c.slug === p.categorySlug)?.image;
               const img = getProductImage(p.slug) ?? catImg;
