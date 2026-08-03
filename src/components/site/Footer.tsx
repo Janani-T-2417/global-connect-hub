@@ -11,22 +11,22 @@ export function Footer() {
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-4">
+          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
             <img
               src={logoMark}
               alt="JAKKI EXIM logo"
-              loading="lazy"
               decoding="async"
-              className="h-12 w-auto max-w-full shrink-0 border-0 bg-transparent object-contain shadow-none [filter:none] sm:h-14"
+              style={{ objectFit: "contain", backgroundColor: "transparent" }}
+              className="block h-[36px] w-auto max-w-none shrink-0 border-0 bg-transparent object-contain shadow-none [clip-path:none] [filter:none] sm:h-[44px] lg:h-[52px]"
             />
-            <span className="flex flex-col leading-none">
+            <span className="flex min-w-0 flex-col justify-center leading-none">
               <span
                 style={{ fontFamily: '"Cinzel", ui-serif, Georgia, serif' }}
-                className="whitespace-nowrap text-[20px] font-bold tracking-[0.06em] text-white"
+                className="whitespace-nowrap text-[17px] font-bold tracking-[0.06em] text-white sm:text-[21px] lg:text-[24px]"
               >
-                JAKKI <span className="text-brand-gold">EX</span>IM
+                JAKKI <span style={{ color: "#4ADE80" }}>EX</span>IM
               </span>
-              <span className="mt-1.5 whitespace-nowrap text-[9px] font-medium uppercase tracking-[0.16em] text-white/70">
+              <span className="mt-[3px] whitespace-nowrap text-[8px] font-medium tracking-[0.12em] text-white/70 sm:text-[9.5px] lg:text-[10.5px]">
                 Local Quality to Global Standards
               </span>
             </span>
