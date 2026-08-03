@@ -468,3 +468,10 @@ html, body, #root {
   main .h-14.w-14 svg { height: 1.15rem !important; width: 1.15rem !important; }
   main .h-12.w-12 { height: 2.4rem !important; width: 2.4rem !important; }
 }
+
+@media (max-width: 767px) {
+  /* footer: two-up link columns to cut height */
+  footer > div[class*="grid"] { grid-template-columns: 1fr 1fr !important; }
+  footer > div[class*="grid"] > div:first-child,
+  footer > div[class*="grid"] > div:last-child { grid-column: span 2 !important; }
+}
