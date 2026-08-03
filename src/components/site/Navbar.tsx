@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full">
       <div className="border-b border-border bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/75">
-      <div className="mx-auto flex h-[86px] max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8 overflow-visible">
+      <div className="mx-auto flex h-[64px] max-w-7xl items-center justify-between gap-3 px-4 sm:h-[76px] sm:px-6 lg:h-[86px] lg:px-8 overflow-visible">
         <Link to="/" className="group flex min-w-0 shrink-0 items-center gap-4 overflow-visible sm:gap-5">
           <img
             src={logoMark}
@@ -62,22 +62,22 @@ export function Navbar() {
 
         <button
           aria-label="Toggle menu"
-          className="inline-flex items-center justify-center rounded-md p-2 text-foreground lg:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/70 bg-secondary/50 text-foreground transition active:scale-95 lg:hidden"
           onClick={() => setOpen(!open)}
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
       {open && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col px-4 py-3">
+        <div className="animate-slide-fade border-t border-border bg-background lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col px-4 py-2">
             {nav.map((n) => (
               <NavLink
                 key={n.to}
                 to={n.to}
                 end={n.to === "/"}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary [&.active]:text-primary"
+                className="rounded-lg px-3 py-2.5 text-[15px] font-medium text-foreground/80 transition hover:bg-secondary hover:text-primary [&.active]:bg-secondary [&.active]:text-primary"
               >
                 {n.label}
               </NavLink>
@@ -85,11 +85,11 @@ export function Navbar() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-full btn-gradient px-4 py-3 text-sm font-semibold text-white"
+              className="mt-2 inline-flex items-center justify-center rounded-full btn-gradient px-4 py-2.5 text-sm font-semibold text-white"
             >
               Request Quote
             </Link>
-            <div className="mt-3 flex items-center justify-center gap-4 border-t border-border pt-3">
+            <div className="mt-2.5 flex items-center justify-center gap-4 border-t border-border pt-2.5">
               <a href="https://instagram.com" aria-label="Instagram" className="text-muted-foreground hover:text-primary"><Instagram className="h-5 w-5" /></a>
               <a href="https://facebook.com" aria-label="Facebook" className="text-muted-foreground hover:text-primary"><Facebook className="h-5 w-5" /></a>
               <a href="https://linkedin.com" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary"><Linkedin className="h-5 w-5" /></a>
