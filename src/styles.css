@@ -446,3 +446,18 @@ html, body, #root {
   footer a[class*="rounded-full"][class*="btn-gradient"] { margin-top: 0.85rem !important; }
   footer > div:last-child > div { padding-block: 0.9rem !important; font-size: 11px !important; text-align: center; }
 }
+
+@media (max-width: 767px) {
+  /* compact product cards */
+  [class*="p-5"] { padding: 0.7rem !important; }
+  main a[class*="rounded-xl"] h3 { font-size: 0.82rem !important; }
+  main a[class*="rounded-xl"] p { font-size: 0.72rem !important; line-height: 1.4 !important; }
+  /* hero slider dots must not sit under the content panel */
+  main > section:first-child > div[class*="bottom-6"] {
+    bottom: auto !important;
+    top: 0.75rem !important;
+    left: auto !important;
+    right: 1rem !important;
+    transform: none !important;
+  }
+}
