@@ -9,9 +9,9 @@ export function Footer() {
     <footer className="relative mt-24 overflow-hidden bg-[oklch(0.32_0.11_148)] text-white">
       <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-brand-gold/20 blur-3xl" />
       <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 md:grid-cols-4 lg:px-8">
-        <div className="md:col-span-1 md:pr-8 lg:pr-10">
-          <div className="flex min-w-0 items-center gap-4 sm:gap-5">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
+        <div className="md:col-span-1 md:pr-5 lg:pr-7">
+          <div className="flex min-w-0 items-center gap-3 sm:gap-4">
             <span className="inline-flex shrink-0 items-center justify-center rounded-full bg-white/95 p-1.5 shadow-[0_6px_18px_rgba(0,0,0,0.18)]">
               <img
                 src={logoMark}
@@ -35,11 +35,11 @@ export function Footer() {
               </span>
             </span>
           </div>
-          <p className="mt-5 text-sm leading-relaxed text-white/80">
+          <p className="mt-3 text-sm leading-snug text-white/80">
             A trusted Indian export &amp; import partner connecting farm, factory, and craft to global
             markets with quality, compliance, and care.
           </p>
-          <div className="mt-5 flex items-center gap-2">
+          <div className="mt-3 flex items-center gap-2">
             {[
               { Icon: Instagram, href: "https://instagram.com", label: "Instagram" },
               { Icon: Facebook, href: "https://facebook.com", label: "Facebook" },
@@ -56,7 +56,7 @@ export function Footer() {
 
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Company</h4>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-3 space-y-3 text-sm">
             {[
               { to: "/about", label: "About Us" },
               { to: "/products", label: "Products" },
@@ -76,7 +76,7 @@ export function Footer() {
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">
             Top Categories
           </h4>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-3 space-y-3 text-sm">
             {categories.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link
@@ -92,7 +92,7 @@ export function Footer() {
 
         <div>
           <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold">Get In Touch</h4>
-          <ul className="mt-5 space-y-3 text-sm text-white/80">
+          <ul className="mt-3 space-y-3 text-sm text-white/80">
             <li className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" /> Office Address: 301, 3rd Floor, Venkata Giri Nagar, Vivekananda Nagar, Kukatpally, Hyderabad - 500072, Telangana, India</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 shrink-0 text-brand-gold" /> {contactEmail}</li>
             <li className="flex items-center gap-2"><Phone className="h-4 w-4 shrink-0 text-brand-gold" /> {primaryContact}</li>
@@ -101,13 +101,13 @@ export function Footer() {
             <li className="flex items-center gap-2"><Plane className="h-4 w-4 shrink-0 text-brand-gold" /> Exporting to 30+ Countries</li>
             <li className="flex items-center gap-2"><Clock className="h-4 w-4 shrink-0 text-brand-gold" /> Quotes within 24 Hours</li>
           </ul>
-          <Link to="/contact" className="mt-5 inline-flex items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
+          <Link to="/contact" className="mt-3 inline-flex items-center gap-2 rounded-full btn-gradient px-5 py-2.5 text-xs font-semibold text-white shadow-glow hover:brightness-110">
             <Send className="h-3.5 w-3.5" /> Request a Quote
           </Link>
         </div>
       </div>
       <div className="relative border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-6 text-[13px] font-[500] tracking-[0.4px] text-[rgba(255,255,255,0.88)] sm:flex-row sm:px-6 lg:px-8" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-1 px-4 py-3 text-[13px] font-[500] tracking-[0.4px] text-[rgba(255,255,255,0.88)] sm:flex-row sm:px-6 lg:px-8" style={{ fontFamily: "Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
           <span className="font-[inherit]">© {new Date().getFullYear()} JAKKI EXIM. All Rights Reserved.</span>
           <span className="font-[inherit]">Designed for International Trade • Made in India</span>
         </div>
