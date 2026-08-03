@@ -278,7 +278,7 @@ function FeaturedProducts() {
                   </h3>
                 </Link>
                 <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
-                <div className="mt-4 flex items-center gap-2">
+                <div className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:flex-row sm:items-center sm:gap-2">
                   <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
