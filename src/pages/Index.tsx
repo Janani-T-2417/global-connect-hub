@@ -221,7 +221,7 @@ function WhyUs() {
             Built for international buyers who demand reliability.
           </h2>
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:mt-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it) => (
             <div
               key={it.title}
