@@ -45,7 +45,7 @@ export default function ProductPage() {
               alt={product.name}
               width={1280}
               height={896}
-              className="aspect-square w-full object-cover"
+              className="aspect-[4/3] w-full object-cover"
             />
           </div>
           <div>
@@ -121,7 +121,7 @@ export default function ProductPage() {
                   to={`/products/${p.categorySlug}/${p.slug}`}
                   className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="aspect-square overflow-hidden bg-secondary">
+                  <div className="aspect-[4/3] overflow-hidden bg-secondary">
                     <img
                       src={img}
                       alt={p.name}

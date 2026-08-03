@@ -125,7 +125,7 @@ export default function ProductsIndex() {
         <h2 className="text-2xl font-bold tracking-tight text-foreground">
           {q ? `Results (${filtered.length})` : "All Products"}
         </h2>
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((p) => {
             const catImg = categories.find((c) => c.slug === p.categorySlug)?.image;
             const img = getProductImage(p.slug) ?? catImg;
@@ -133,9 +133,9 @@ export default function ProductsIndex() {
               <Link
                 key={p.slug}
                 to={`/products/${p.categorySlug}/${p.slug}`}
-                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition hover:-translate-y-1 hover:shadow-lg aspect-[3/4] md:aspect-auto"
               >
-                <div className="aspect-square overflow-hidden bg-secondary">
+                <div className="h-[65%] overflow-hidden bg-secondary md:aspect-[4/3] md:h-auto">
                   <img
                     src={img}
                     alt={p.name}
@@ -143,14 +143,26 @@ export default function ProductsIndex() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-accent">
-                    HS {p.hs6}
+                <div className="flex flex-1 flex-col justify-between p-4 sm:p-5 overflow-hidden min-h-0">
+                  <div>
+                    <div className="text-[10px] font-semibold uppercase tracking-wider text-accent">
+                      HS {p.hs6}
+                    </div>
+                    <h3 className="mt-2 line-clamp-3 text-[15px] sm:line-clamp-2 sm:text-sm font-semibold leading-[1.17] text-foreground group-hover:text-primary break-words whitespace-normal">
+                      {p.name}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
                   </div>
-                  <h3 className="mt-2 line-clamp-2 text-sm font-semibold leading-snug text-foreground group-hover:text-primary">
-                    {p.name}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
+                  <div className="mt-4 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-2">
+                    <Link to="/contact" className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-2.5 py-2 text-[10px] font-bold text-white transition hover:bg-[#15803D] sm:flex-1 sm:px-3 sm:py-2 sm:text-[11px] whitespace-nowrap">
+                      <Mail className="h-3.5 w-3.5" /> Inquiry
+                    </Link>
+                    <a href={whatsappUrl}
+                       target="_blank" rel="noreferrer"
+                       className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-2.5 py-2 text-[10px] font-bold text-white transition hover:bg-[#0B1F3A] sm:flex-1 sm:px-3 sm:py-2 sm:text-[11px] whitespace-nowrap">
+                      <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
+                    </a>
+                  </div>
                 </div>
               </Link>
             );

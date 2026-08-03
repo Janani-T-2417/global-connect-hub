@@ -173,7 +173,7 @@ function CategoriesSection() {
           <Link
             key={c.slug}
             to={`/products/${c.slug}`}
-            className="group relative mx-auto w-[92%] max-w-[420px] overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant"
+            className="group relative mx-auto w-full max-w-[420px] overflow-hidden rounded-2xl border border-border bg-card shadow-card transition-all duration-500 hover:-translate-y-2 hover:shadow-elegant sm:w-full"
           >
             <div className="aspect-[4/3] overflow-hidden">
               <img
@@ -183,11 +183,13 @@ function CategoriesSection() {
                 className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-125"
               />
             </div>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-5 pt-18 text-white">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 sm:p-5 pt-16 sm:pt-18 text-white">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-accent/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white">
                 {c.count} Products
               </div>
-              <h3 className="mt-2 text-xl font-bold leading-tight">{c.shortName}</h3>
+              <h3 className="mt-2 text-[14px] font-bold leading-[1.2] break-words whitespace-normal line-clamp-3 sm:text-xl sm:leading-tight sm:line-clamp-2">
+                {c.shortName}
+              </h3>
               <div className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-white/90 opacity-0 transition-opacity group-hover:opacity-100">
                 Explore <ArrowRight className="h-3 w-3" />
               </div>
@@ -255,12 +257,12 @@ function FeaturedProducts() {
           </h2>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {featured.map((p) => {
           const img = categories.find((c) => c.slug === p.categorySlug)?.image;
           return (
-            <div key={p.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-elegant">
-              <Link to={`/products/${p.categorySlug}/${p.slug}`} className="relative aspect-square overflow-hidden bg-secondary">
+            <div key={p.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-elegant aspect-[3/4] md:aspect-auto">
+              <Link to={`/products/${p.categorySlug}/${p.slug}`} className="relative h-[65%] overflow-hidden bg-secondary md:aspect-[4/3] md:h-auto">
                 <img
                   src={img}
                   alt={p.name}
@@ -271,20 +273,22 @@ function FeaturedProducts() {
                   HS {p.hs6}
                 </span>
               </Link>
-              <div className="flex flex-1 flex-col p-5">
-                <Link to={`/products/${p.categorySlug}/${p.slug}`}>
-                  <h3 className="line-clamp-2 text-sm font-bold leading-snug text-foreground transition group-hover:text-primary">
-                    {p.name}
-                  </h3>
-                </Link>
-                <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
-                <div className="mt-3 flex flex-col gap-1.5 sm:mt-4 sm:flex-row sm:items-center sm:gap-2">
-                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
+              <div className="flex flex-1 flex-col justify-between p-4 md:p-5 overflow-hidden min-h-0">
+                <div>
+                  <Link to={`/products/${p.categorySlug}/${p.slug}`}>
+                    <h3 className="line-clamp-3 md:line-clamp-2 text-[15px] md:text-[13px] font-bold leading-[1.2] text-foreground transition group-hover:text-primary">
+                      {p.name}
+                    </h3>
+                  </Link>
+                  <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
+                </div>
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center sm:gap-2">
+                  <Link to="/contact" className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D] whitespace-nowrap sm:w-auto">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
                   <a href={whatsappUrl}
                      target="_blank" rel="noreferrer"
-                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
+                     className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A] whitespace-nowrap sm:w-auto">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
                   </a>
                 </div>

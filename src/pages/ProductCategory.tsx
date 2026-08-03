@@ -334,10 +334,10 @@ export default function CategoryPage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {items.map((p) => (
-            <div key={p.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-elegant">
-              <Link to={`/products/${p.categorySlug}/${p.slug}`} className="relative aspect-square overflow-hidden bg-secondary">
+            <div key={p.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition duration-500 hover:-translate-y-2 hover:shadow-elegant aspect-[3/4] md:aspect-auto">
+              <Link to={`/products/${p.categorySlug}/${p.slug}`} className="relative h-[65%] overflow-hidden bg-secondary md:aspect-[4/3] md:h-auto">
                 <img
                   src={getProductImage(p.slug) ?? category.image}
                   alt={p.name}
@@ -348,20 +348,22 @@ export default function CategoryPage() {
                     HSN {p.hs6}
                   </span>
               </Link>
-              <div className="flex flex-1 flex-col p-5 pt-4 md:pt-5 overflow-visible">
-                <Link to={`/products/${p.categorySlug}/${p.slug}`}>
-                  <h3 className="line-clamp-3 text-[15px] md:text-[13px] font-bold leading-[1.15] md:leading-snug break-words whitespace-normal text-foreground transition group-hover:text-primary md:line-clamp-2 md:text-sm">
-                    {p.name}
-                  </h3>
-                </Link>
-                <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
-                <div className="mt-4 flex items-center gap-2">
-                  <Link to="/contact" className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D]">
+              <div className="flex flex-1 flex-col justify-between p-4 pt-4 md:p-5 md:pt-5 overflow-hidden min-h-0">
+                <div>
+                  <Link to={`/products/${p.categorySlug}/${p.slug}`}>
+                    <h3 className="line-clamp-3 md:line-clamp-2 text-[15px] md:text-[13px] font-bold leading-[1.2] md:leading-snug break-words whitespace-normal text-foreground transition group-hover:text-primary md:text-sm">
+                      {p.name}
+                    </h3>
+                  </Link>
+                  <p className="mt-2 line-clamp-2 text-xs text-muted-foreground">{p.tagline}</p>
+                </div>
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  <Link to="/contact" className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#0B1F3A] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#15803D] whitespace-nowrap sm:w-auto">
                     <Mail className="h-3.5 w-3.5" /> Inquiry
                   </Link>
                   <a href={whatsappUrl}
                      target="_blank" rel="noreferrer"
-                     className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A]">
+                     className="inline-flex w-full min-w-0 items-center justify-center gap-1.5 rounded-full bg-[#15803D] px-3 py-2 text-[11px] font-bold text-white transition hover:bg-[#0B1F3A] whitespace-nowrap sm:w-auto">
                     <MessageCircle className="h-3.5 w-3.5" /> WhatsApp
                   </a>
                 </div>

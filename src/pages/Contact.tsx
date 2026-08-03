@@ -108,21 +108,21 @@ export default function Contact() {
         <div className="lg:col-span-3">
           <form
             onSubmit={onSubmit}
-            className="rounded-3xl border border-border bg-card p-8 shadow-elegant sm:p-10"
+            className="rounded-3xl border border-border bg-card p-6 shadow-elegant sm:p-10"
           >
             <h2 className="text-3xl font-extrabold text-foreground">Request a Quote</h2>
             <p className="mt-2 text-sm text-muted-foreground">
               Fields marked * are required. We reply within one business day.
             </p>
             {submitted ? (
-              <div className="mt-8 rounded-2xl border border-accent/30 bg-accent/10 p-8 text-center">
+              <div className="mt-4 rounded-2xl border border-accent/30 bg-accent/10 p-6 text-center sm:p-8">
                 <div className="text-xl font-bold text-accent">Thank you!</div>
                 <p className="mt-1 text-sm text-muted-foreground">
                   Your enquiry has been received. Our export team will be in touch shortly.
                 </p>
               </div>
             ) : (
-              <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
                 <Field label="Full Name" name="name" required />
                 <Field label="Company" name="company" />
                 <Field label="Email" name="email" type="email" required />
@@ -140,7 +140,7 @@ export default function Contact() {
                     defaultValue=""
                     required
                     onChange={() => setErrors((prev) => ({ ...prev, container: undefined }))}
-                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2"
+                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm outline-none ring-accent focus:ring-2 sm:py-3"
                   >
                     <option value="" disabled>Select Container Size</option>
                     <option>20ft FCL</option>
@@ -163,7 +163,7 @@ export default function Contact() {
                     defaultValue=""
                     required
                     onChange={() => setErrors((prev) => ({ ...prev, incoterm: undefined }))}
-                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2"
+                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm outline-none ring-accent focus:ring-2 sm:py-3"
                   >
                     <option value="" disabled>Select Incoterm</option>
                     <option>FOB</option>
@@ -181,12 +181,12 @@ export default function Contact() {
                   <textarea
                     name="message"
                     rows={5}
-                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none ring-accent focus:ring-2"
+                    className="mt-2 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm outline-none ring-accent focus:ring-2 sm:py-3"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full btn-gradient px-6 py-4 text-sm font-bold text-white shadow-glow transition hover:brightness-110"
+                  className="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-full btn-gradient px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:brightness-110 sm:px-6 sm:py-4"
                 >
                   Send Enquiry <Send className="h-4 w-4" />
                 </button>

@@ -415,7 +415,6 @@ html, body, #root {
   main img:not([class*="absolute"]):not([class*="h-full"]) { border-radius: 14px; }
   [class*="h-\[420px\]"], [class*="h-\[400px\]"], [class*="h-\[380px\]"], [class*="h-\[360px\]"] { height: 210px !important; }
   [class*="h-\[340px\]"], [class*="h-\[320px\]"], [class*="h-\[300px\]"] { height: 190px !important; }
-  [class*="aspect-\[4\/3\]"], [class*="aspect-square"] { aspect-ratio: 16 / 10 !important; }
 
   /* ---------- Buttons ---------- */
   a[class*="rounded-full"][class*="px-8"], button[class*="rounded-full"][class*="px-8"],
